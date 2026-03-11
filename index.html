@@ -1,658 +1,780 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nespresso — Povestea unui brand de lux</title>
-  <link rel="icon" type="image/svg+xml" href="assets/images/Favico.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nespresso — Povestea unui brand de lux</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/Favico.svg" />
 
-  <!-- Reveal.js Core CSS -->
-  <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <!-- Reveal.js Core CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css"
+    />
 
-  <!-- Custom Nespresso Theme -->
-  <link rel="stylesheet" href="css/nespresso-theme.css">
-</head>
-<body>
+    <!-- Custom Nespresso Theme -->
+    <link rel="stylesheet" href="css/nespresso-theme.css" />
+  </head>
+  <body>
+    <!-- Ambient Particles -->
+    <canvas id="particles-canvas"></canvas>
 
-  <!-- Ambient Particles -->
-  <canvas id="particles-canvas"></canvas>
+    <!-- Persistent Nespresso Logo -->
+    <div class="nespresso-logo" aria-hidden="true">
+      <img src="assets/images/Logo_Nespresso.svg" alt="Nespresso" />
+    </div>
 
-  <!-- Persistent Nespresso Logo -->
-  <div class="nespresso-logo" aria-hidden="true">
-    <img src="assets/images/Logo_Nespresso.svg" alt="Nespresso">
-  </div>
+    <!-- Custom Slide Number -->
+    <div class="custom-slide-number" aria-hidden="true"></div>
 
-  <!-- Custom Slide Number -->
-  <div class="custom-slide-number" aria-hidden="true"></div>
-
-  <div class="reveal">
-    <div class="slides">
-
-      <!-- ============================================================
+    <div class="reveal">
+      <div class="slides">
+        <!-- ============================================================
            SLIDE 0 — Title
            ============================================================ -->
-      <section class="cover-slide" data-transition="none">
-        <div class="centered-layout">
-          <img src="assets/images/Logo_Nespresso.svg" alt="Nespresso" class="cover-logo">
-          <div class="gold-divider centered wide"></div>
-        </div>
-        <aside class="notes">
-          Prezintă-te. Spune tema. Lasă slide-ul să respire 5 secunde înainte să vorbești.
-        </aside>
-      </section>
+        <section class="cover-slide" data-transition="none">
+          <div class="centered-layout">
+            <img
+              src="assets/images/Logo_Nespresso.svg"
+              alt="Nespresso"
+              class="cover-logo"
+            />
+            <div class="gold-divider centered wide"></div>
+          </div>
+          <aside class="notes">
+            Prezintă-te. Spune tema. Lasă slide-ul să respire 5 secunde înainte
+            să vorbești.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 1 — Shocking Statistic (Opening Hook)
            ============================================================ -->
-      <section class="dark-slide" data-transition="none">
-        <div class="centered-layout">
-          <span class="label">Context Global</span>
-          <span class="stat-number" data-counter="96" data-suffix=" miliarde $">0</span>
-          <div class="gold-divider centered"></div>
-          <h2 class="text-center">Valoarea pieței globale de cafea în 2023</h2>
-          <p class="text-center text-secondary quote-footer">
-            Nespresso deține 30% din segmentul premium
-          </p>
-          <div class="spacer"></div>
-          <span class="caption block-center">Sursa: Statista, Nestlé Annual Report 2023</span>
-        </div>
-        <aside class="notes">
-          Hook-ul audienței. „Cafeaua nu mai este un produs banal de 20 de ani."
-        </aside>
-      </section>
+        <section class="dark-slide" data-transition="none">
+          <div class="centered-layout">
+            <span class="label">Context Global</span>
+            <span
+              class="stat-number"
+              data-counter="96"
+              data-suffix=" miliarde $"
+              >0</span
+            >
+            <div class="gold-divider centered"></div>
+            <h2 class="text-center">
+              Valoarea pieței globale de cafea în 2023
+            </h2>
+            <p class="text-center text-secondary quote-footer">
+              Nespresso deține 30% din segmentul premium
+            </p>
+            <div class="spacer"></div>
+            <span class="caption block-center"
+              >Sursa: Statista, Nestlé Annual Report 2023</span
+            >
+          </div>
+          <aside class="notes">
+            Hook-ul audienței. „Cafeaua nu mai este un produs banal de 20 de
+            ani."
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 2 — Brand History: Origins (Card grid with hover)
            ============================================================ -->
-      <section data-transition="none">
-        <div class="split-layout">
-          <div class="split-left">
-            <div class="img-placeholder">
-              <span class="placeholder-label">Eric Favre &middot; Prima mașină Nespresso &middot; 1986</span>
+        <section data-transition="none">
+          <div class="split-layout">
+            <div class="split-left">
+              <div class="img-placeholder">
+                <span class="placeholder-label"
+                  >Eric Favre &middot; Prima mașină Nespresso &middot;
+                  1986</span
+                >
+              </div>
+            </div>
+            <div class="split-right">
+              <span class="label">Istoria Brandului</span>
+              <div class="big-year">1986</div>
+              <div class="gold-divider"></div>
+              <p>
+                Eric Favre, inginer Nestlé, brevetează ideea capsulei de cafea
+                după ce observă că barista din Roma agită espressorul pentru a
+                crea spumă mai bogată.
+              </p>
+              <div class="mini-timeline">
+                <span class="active-year">1986</span>
+                <span>&rarr;</span>
+                <span>1991</span>
+                <span>&rarr;</span>
+                <span>2000</span>
+                <span>&rarr;</span>
+                <span>2006</span>
+                <span>&rarr;</span>
+                <span>prezent</span>
+              </div>
             </div>
           </div>
-          <div class="split-right">
-            <span class="label">Istoria Brandului</span>
-            <div class="big-year">1986</div>
-            <div class="gold-divider"></div>
-            <p>
-              Eric Favre, inginer Nestlé, brevetează ideea capsulei de cafea
-              după ce observă că barista din Roma agită espressorul
-              pentru a crea spumă mai bogată.
-            </p>
-            <div class="mini-timeline">
-              <span class="active-year">1986</span>
-              <span>&rarr;</span>
-              <span>1991</span>
-              <span>&rarr;</span>
-              <span>2000</span>
-              <span>&rarr;</span>
-              <span>2006</span>
-              <span>&rarr;</span>
-              <span>prezent</span>
-            </div>
-          </div>
-        </div>
-        <aside class="notes">
-          Povestește cinematografic fondarea. Subliniază observația despre barmanul din Roma — acolo s-a născut brandul.
-        </aside>
-      </section>
+          <aside class="notes">
+            Povestește cinematografic fondarea. Subliniază observația despre
+            barmanul din Roma — acolo s-a născut brandul.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 3 — Brand History: Key Milestones (Horizontal Timeline)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Etapele Brandului</span>
-        <h1>Repere Istorice</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Etapele Brandului</span>
+          <h1>Repere Istorice</h1>
+          <div class="gold-divider"></div>
 
-        <div class="timeline-container">
-          <div class="timeline-track"></div>
-          <div class="timeline-nodes">
-            <div class="timeline-node fragment fade-up" data-fragment-index="1">
-              <div class="node-dot"></div>
-              <span class="node-year">1986</span>
-              <span class="node-text">Prima patentare a capsulei</span>
-            </div>
-            <div class="timeline-node fragment fade-up" data-fragment-index="2">
-              <div class="node-dot"></div>
-              <span class="node-year">1988</span>
-              <span class="node-text">Lansare comercială în Elveția</span>
-            </div>
-            <div class="timeline-node fragment fade-up" data-fragment-index="3">
-              <div class="node-dot"></div>
-              <span class="node-year">1991</span>
-              <span class="node-text">Club Nespresso fondat</span>
-            </div>
-            <div class="timeline-node fragment fade-up" data-fragment-index="4">
-              <div class="node-dot"></div>
-              <span class="node-year">2006</span>
-              <span class="node-text">George Clooney devine ambasador</span>
-            </div>
-            <div class="timeline-node fragment fade-up" data-fragment-index="5">
-              <div class="node-dot"></div>
-              <span class="node-year">2014</span>
-              <span class="node-text">Programul AAA Sustainability</span>
+          <div class="timeline-container">
+            <div class="timeline-track"></div>
+            <div class="timeline-nodes">
+              <div
+                class="timeline-node fragment fade-up"
+                data-fragment-index="1"
+              >
+                <div class="node-dot"></div>
+                <span class="node-year">1986</span>
+                <span class="node-text">Prima patentare a capsulei</span>
+              </div>
+              <div
+                class="timeline-node fragment fade-up"
+                data-fragment-index="2"
+              >
+                <div class="node-dot"></div>
+                <span class="node-year">1988</span>
+                <span class="node-text">Lansare comercială în Elveția</span>
+              </div>
+              <div
+                class="timeline-node fragment fade-up"
+                data-fragment-index="3"
+              >
+                <div class="node-dot"></div>
+                <span class="node-year">1991</span>
+                <span class="node-text">Club Nespresso fondat</span>
+              </div>
+              <div
+                class="timeline-node fragment fade-up"
+                data-fragment-index="4"
+              >
+                <div class="node-dot"></div>
+                <span class="node-year">2006</span>
+                <span class="node-text">George Clooney devine ambasador</span>
+              </div>
+              <div
+                class="timeline-node fragment fade-up"
+                data-fragment-index="5"
+              >
+                <div class="node-dot"></div>
+                <span class="node-year">2014</span>
+                <span class="node-text">Programul AAA Sustainability</span>
+              </div>
             </div>
           </div>
-        </div>
-        <aside class="notes">
-          Parcurge rapid fiecare reper. Nu citi — doar arată spre fiecare punct.
-        </aside>
-      </section>
+          <aside class="notes">
+            Parcurge rapid fiecare reper. Nu citi — doar arată spre fiecare
+            punct.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 4 — Visual Identity (2x2 Grid)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Identitate Vizuală</span>
-        <h1>Limbajul Vizual</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Identitate Vizuală</span>
+          <h1>Limbajul Vizual</h1>
+          <div class="gold-divider"></div>
 
-        <div class="grid-2x2">
-          <div class="content-card">
-            <span class="card-icon">&#9670;</span>
-            <div class="card-title">Logotip</div>
-            <p class="card-body">
-              Litera „N" în italic — eleganță, mișcare, premium.
-              Recunoaștere instantanee la nivel global.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="card-icon">&#9632;</span>
-            <div class="card-title">Culori</div>
-            <p class="card-body">
-              Negru, auriu, crem și roșu burgundy.
-              Fiecare nuanță comunică rafinament.
-            </p>
-            <div class="swatch-row">
-              <div>
-                <div class="swatch" style="background:#1A1209;"></div>
-                <div class="swatch-label">Negru</div>
-              </div>
-              <div>
-                <div class="swatch" style="background:#C5A258;"></div>
-                <div class="swatch-label">Auriu</div>
-              </div>
-              <div>
-                <div class="swatch" style="background:#F5F0E8;"></div>
-                <div class="swatch-label">Crem</div>
-              </div>
-              <div>
-                <div class="swatch" style="background:#8B2332;"></div>
-                <div class="swatch-label">Roșu</div>
+          <div class="grid-2x2">
+            <div class="content-card">
+              <span class="card-icon">&#9670;</span>
+              <div class="card-title">Logotip</div>
+              <p class="card-body">
+                Litera „N" în italic — eleganță, mișcare, premium. Recunoaștere
+                instantanee la nivel global.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon">&#9632;</span>
+              <div class="card-title">Culori</div>
+              <p class="card-body">
+                Negru, auriu, crem și roșu burgundy. Fiecare nuanță comunică
+                rafinament.
+              </p>
+              <div class="swatch-row">
+                <div>
+                  <div class="swatch" style="background: #1a1209"></div>
+                  <div class="swatch-label">Negru</div>
+                </div>
+                <div>
+                  <div class="swatch" style="background: #c5a258"></div>
+                  <div class="swatch-label">Auriu</div>
+                </div>
+                <div>
+                  <div class="swatch" style="background: #f5f0e8"></div>
+                  <div class="swatch-label">Crem</div>
+                </div>
+                <div>
+                  <div class="swatch" style="background: #8b2332"></div>
+                  <div class="swatch-label">Roșu</div>
+                </div>
               </div>
             </div>
+            <div class="content-card">
+              <span class="card-icon">&#10077;</span>
+              <div class="card-title">Slogan</div>
+              <p class="card-body slogan-display">What Else?</p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon">Aa</span>
+              <div class="card-title">Tipografie</div>
+              <p class="card-body">
+                Fonturi serif elegante, spațiere generoasă, majuscule subțiri —
+                stilul Didot.
+              </p>
+            </div>
           </div>
-          <div class="content-card">
-            <span class="card-icon">&#10077;</span>
-            <div class="card-title">Slogan</div>
-            <p class="card-body slogan-display">
-              What Else?
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="card-icon">Aa</span>
-            <div class="card-title">Tipografie</div>
-            <p class="card-body">
-              Fonturi serif elegante, spațiere generoasă,
-              majuscule subțiri — stilul Didot.
-            </p>
-          </div>
-        </div>
-        <aside class="notes">
-          Identitatea vizuală este prima impresie. Fiecare element Nespresso comunică lux și exclusivitate.
-        </aside>
-      </section>
+          <aside class="notes">
+            Identitatea vizuală este prima impresie. Fiecare element Nespresso
+            comunică lux și exclusivitate.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 5 — Brand Values / Brand Mantra
            ============================================================ -->
-      <section data-transition="none">
-        <div class="centered-layout">
-          <span class="label">Valorile Brandului &middot; Brand Mantra</span>
-          <div class="spacer-sm"></div>
-          <p class="pull-quote">
-            &ldquo;Nespresso nu vinde cafea.<br>Vinde un ritual.&rdquo;
-          </p>
-          <div class="gold-divider centered wide"></div>
-          <div class="values-row">
-            <span>Excelență</span>
-            <span class="values-separator">&middot;</span>
-            <span>Inovație</span>
-            <span class="values-separator">&middot;</span>
-            <span>Sustenabilitate</span>
+        <section data-transition="none">
+          <div class="centered-layout">
+            <span class="label">Valorile Brandului &middot; Brand Mantra</span>
+            <div class="spacer-sm"></div>
+            <p class="pull-quote">
+              &ldquo;Nespresso nu vinde cafea.<br />Vinde un ritual.&rdquo;
+            </p>
+            <div class="gold-divider centered wide"></div>
+            <div class="values-row">
+              <span>Excelență</span>
+              <span class="values-separator">&middot;</span>
+              <span>Inovație</span>
+              <span class="values-separator">&middot;</span>
+              <span>Sustenabilitate</span>
+            </div>
           </div>
-        </div>
-        <aside class="notes">
-          Acesta este inima conceptuală a prezentării. Tot ce face Nespresso derivă din această mantră. Pauză după citat.
-        </aside>
-      </section>
+          <aside class="notes">
+            Acesta este inima conceptuală a prezentării. Tot ce face Nespresso
+            derivă din această mantră. Pauză după citat.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 6 — Positioning Axes (3 Columns)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Axele de Poziționare</span>
-        <h1>Strategia de Poziționare</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Axele de Poziționare</span>
+          <h1>Strategia de Poziționare</h1>
+          <div class="gold-divider"></div>
 
-        <div class="three-columns">
-          <div class="content-card">
-            <span class="card-icon card-icon-number">01</span>
-            <div class="card-title">Beneficii</div>
-            <p class="card-body">
-              Confort, calitate constantă, ritual premium, varietate de origini selecte.
-            </p>
+          <div class="three-columns">
+            <div class="content-card">
+              <span class="card-icon card-icon-number">01</span>
+              <div class="card-title">Beneficii</div>
+              <p class="card-body">
+                Confort, calitate constantă, ritual premium, varietate de
+                origini selecte.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon card-icon-number">02</span>
+              <div class="card-title">Utilizatori</div>
+              <p class="card-body">
+                Profesioniști urbani 30–55 ani, stil de viață aspirațional,
+                conștiință eco.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon card-icon-number">03</span>
+              <div class="card-title">Situații de Utilizare</div>
+              <p class="card-body">
+                Ritualul de dimineață, întâlniri de afaceri, entertaining acasă,
+                cadouri.
+              </p>
+            </div>
           </div>
-          <div class="content-card">
-            <span class="card-icon card-icon-number">02</span>
-            <div class="card-title">Utilizatori</div>
-            <p class="card-body">
-              Profesioniști urbani 30–55 ani, stil de viață aspirațional, conștiință eco.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="card-icon card-icon-number">03</span>
-            <div class="card-title">Situații de Utilizare</div>
-            <p class="card-body">
-              Ritualul de dimineață, întâlniri de afaceri, entertaining acasă, cadouri.
-            </p>
-          </div>
-        </div>
 
-        <p class="mt-1 quote-footer">
-          &ldquo;Nespresso se poziționează nu ca o cafea, ci ca un moment de lux personal.&rdquo;
-        </p>
-        <aside class="notes">
-          Poziționarea este nucleul strategic. Nespresso nu a concurat niciodată pe preț — a concurat pe semnificație.
-        </aside>
-      </section>
+          <p class="mt-1 quote-footer">
+            &ldquo;Nespresso se poziționează nu ca o cafea, ci ca un moment de
+            lux personal.&rdquo;
+          </p>
+          <aside class="notes">
+            Poziționarea este nucleul strategic. Nespresso nu a concurat
+            niciodată pe preț — a concurat pe semnificație.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 7 — Brand Portfolio (Nestlé)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Portofoliul Nestlé</span>
-        <h1>Arhitectura de Brand</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Portofoliul Nestlé</span>
+          <h1>Arhitectura de Brand</h1>
+          <div class="gold-divider"></div>
 
-        <div class="split-50">
-          <div>
-            <p>
-              Nespresso este deținut de Nestlé S.A., cel mai mare grup alimentar din lume,
-              care operează o strategie de portofoliu pe segmente distincte de preț și stil de viață.
-            </p>
-          </div>
-          <div>
-            <div class="pyramid">
-              <div class="pyramid-level highlight">Ultra-Premium — Nespresso Vertuo, Atelier</div>
-              <div class="pyramid-level highlight">Premium — Nespresso Original</div>
-              <div class="pyramid-level muted">Mid-Range — Nescafé Dolce Gusto</div>
-              <div class="pyramid-level muted">Mass — Nescafé Classic</div>
+          <div class="split-50">
+            <div>
+              <p>
+                Nespresso este deținut de Nestlé S.A., cel mai mare grup
+                alimentar din lume, care operează o strategie de portofoliu pe
+                segmente distincte de preț și stil de viață.
+              </p>
+            </div>
+            <div>
+              <div class="pyramid">
+                <div class="pyramid-level highlight">
+                  Ultra-Premium — Nespresso Vertuo, Atelier
+                </div>
+                <div class="pyramid-level highlight">
+                  Premium — Nespresso Original
+                </div>
+                <div class="pyramid-level muted">
+                  Mid-Range — Nescafé Dolce Gusto
+                </div>
+                <div class="pyramid-level muted">Mass — Nescafé Classic</div>
+              </div>
             </div>
           </div>
-        </div>
-        <aside class="notes">
-          Context important — Nespresso este bijuteria Nestlé. Compania îl separă deliberat de brandurile ieftine.
-        </aside>
-      </section>
+          <aside class="notes">
+            Context important — Nespresso este bijuteria Nestlé. Compania îl
+            separă deliberat de brandurile ieftine.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 8 — Target Segments (3 Persona Cards)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Segmente Țintă</span>
-        <h1>Profilul Consumatorului</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Segmente Țintă</span>
+          <h1>Profilul Consumatorului</h1>
+          <div class="gold-divider"></div>
 
-        <div class="three-columns">
-          <div class="persona-card">
-            <div class="persona-title">Profesionistul Urban</div>
-            <p class="persona-desc">
-              30–45 ani, venit peste medie.
-              Cafeaua este un ritual de status
-              și un moment personal zilnic.
-            </p>
+          <div class="three-columns">
+            <div class="persona-card">
+              <div class="persona-title">Profesionistul Urban</div>
+              <p class="persona-desc">
+                30–45 ani, venit peste medie. Cafeaua este un ritual de status
+                și un moment personal zilnic.
+              </p>
+            </div>
+            <div class="persona-card">
+              <div class="persona-title">Aspiraționalul</div>
+              <p class="persona-desc">
+                25–35 ani, accesibilitate relativă la lux. Prima achiziție
+                premium — poarta de intrare în universul luxury.
+              </p>
+            </div>
+            <div class="persona-card">
+              <div class="persona-title">B2B / Office</div>
+              <p class="persona-desc">
+                Companii, hoteluri 5 stele, restaurante premium. Cafeaua ca
+                simbol de hospitalitate.
+              </p>
+            </div>
           </div>
-          <div class="persona-card">
-            <div class="persona-title">Aspiraționalul</div>
-            <p class="persona-desc">
-              25–35 ani, accesibilitate relativă la lux.
-              Prima achiziție premium —
-              poarta de intrare în universul luxury.
-            </p>
-          </div>
-          <div class="persona-card">
-            <div class="persona-title">B2B / Office</div>
-            <p class="persona-desc">
-              Companii, hoteluri 5 stele,
-              restaurante premium.
-              Cafeaua ca simbol de hospitalitate.
-            </p>
-          </div>
-        </div>
 
-        <p class="mt-1 quote-footer">
-          Nespresso nu targetează toți consumatorii de cafea — ci pe cei care vor să fie mai mult decât consumatori.
-        </p>
-        <aside class="notes">
-          Geniul: Nespresso a făcut luxul accesibil ca aspirație, dar suficient de exclusiv ca să te simți special.
-        </aside>
-      </section>
+          <p class="mt-1 quote-footer">
+            Nespresso nu targetează toți consumatorii de cafea — ci pe cei care
+            vor să fie mai mult decât consumatori.
+          </p>
+          <aside class="notes">
+            Geniul: Nespresso a făcut luxul accesibil ca aspirație, dar
+            suficient de exclusiv ca să te simți special.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 9 — Global Markets (Stats + Vertical Interactive Timeline)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Piețe Globale</span>
-        <h1>Prezența Mondială</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Piețe Globale</span>
+          <h1>Prezența Mondială</h1>
+          <div class="gold-divider"></div>
 
-        <div class="split-50">
-          <div>
-            <div class="metric-stack">
-              <div class="metric-card">
-                <span class="stat-number medium" data-counter="80" data-suffix="+">0</span>
-                <p class="stat-label">Țări prezente</p>
+          <div class="split-50">
+            <div>
+              <div class="metric-stack">
+                <div class="metric-card">
+                  <span
+                    class="stat-number medium"
+                    data-counter="80"
+                    data-suffix="+"
+                    >0</span
+                  >
+                  <p class="stat-label">Țări prezente</p>
+                </div>
+                <div class="metric-card">
+                  <span
+                    class="stat-number medium"
+                    data-counter="800"
+                    data-suffix="+"
+                    >0</span
+                  >
+                  <p class="stat-label">Boutique-uri în lume</p>
+                </div>
+                <div class="metric-card">
+                  <span
+                    class="stat-number medium"
+                    data-counter="14"
+                    data-suffix=" Mld €"
+                    >0</span
+                  >
+                  <p class="stat-label">Vânzări anuale (2023)</p>
+                </div>
               </div>
-              <div class="metric-card">
-                <span class="stat-number medium" data-counter="800" data-suffix="+">0</span>
-                <p class="stat-label">Boutique-uri în lume</p>
-              </div>
-              <div class="metric-card">
-                <span class="stat-number medium" data-counter="14" data-suffix=" Mld €">0</span>
-                <p class="stat-label">Vânzări anuale (2023)</p>
+            </div>
+            <div>
+              <p class="mb-1">
+                De la o idee elvețiană la o prezență pe 5 continente. Nespresso
+                operează prin boutique-uri proprii, e-commerce și o rețea
+                selectă de retail parteneri.
+              </p>
+              <div class="vertical-timeline">
+                <div class="vt-item active">
+                  <div class="vt-year">Europa</div>
+                  <div class="vt-title">Piața principală</div>
+                  <div class="vt-details">
+                    Elveția, Franța, Germania, Italia — piețe mature cu cea mai
+                    mare penetrare.
+                  </div>
+                </div>
+                <div class="vt-item">
+                  <div class="vt-year">America</div>
+                  <div class="vt-title">Expansiune Vertuo</div>
+                  <div class="vt-details">
+                    SUA și Canada — adaptare la cultura espresso nord-americană
+                    cu sistemul Vertuo.
+                  </div>
+                </div>
+                <div class="vt-item">
+                  <div class="vt-year">Asia &amp; ME</div>
+                  <div class="vt-title">Piețe emergente</div>
+                  <div class="vt-details">
+                    China, India, Orientul Mijlociu — creștere accelerată în
+                    segmentul premium.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
-            <p class="mb-1">
-              De la o idee elvețiană la o prezență pe 5 continente.
-              Nespresso operează prin boutique-uri proprii, e-commerce
-              și o rețea selectă de retail parteneri.
-            </p>
-            <div class="vertical-timeline">
-              <div class="vt-item active">
-                <div class="vt-year">Europa</div>
-                <div class="vt-title">Piața principală</div>
-                <div class="vt-details">Elveția, Franța, Germania, Italia — piețe mature cu cea mai mare penetrare.</div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-year">America</div>
-                <div class="vt-title">Expansiune Vertuo</div>
-                <div class="vt-details">SUA și Canada — adaptare la cultura espresso nord-americană cu sistemul Vertuo.</div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-year">Asia &amp; ME</div>
-                <div class="vt-title">Piețe emergente</div>
-                <div class="vt-details">China, India, Orientul Mijlociu — creștere accelerată în segmentul premium.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <aside class="notes">
-          Scala comunică legitimitate. Aceste cifre validează strategia.
-        </aside>
-      </section>
+          <aside class="notes">
+            Scala comunică legitimitate. Aceste cifre validează strategia.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 10 — Marketing: Campaigns & Celebrity
            ============================================================ -->
-      <section data-transition="none">
-        <div class="centered-layout">
-          <span class="label block-center">Marketing &middot; Campanii</span>
-          <div class="spacer-sm"></div>
-          <p class="what-else-quote">
-            &ldquo;What Else?&rdquo;
-          </p>
-          <div class="gold-divider centered wide"></div>
-          <p class="quote-footer">
-            2006 — George Clooney devine chipul unui brand. Nu un produs. Un lifestyle.
-          </p>
-          <div class="spacer"></div>
-          <div class="ambassador-bar">
-            <div class="ambassador-item">
-              <div class="amb-name">George Clooney</div>
-              <div class="amb-year">2006</div>
-            </div>
-            <div class="ambassador-item">
-              <div class="amb-name">Naomi Campbell</div>
-              <div class="amb-year">2015</div>
-            </div>
-            <div class="ambassador-item">
-              <div class="amb-name">Penélope Cruz</div>
-              <div class="amb-year">2019</div>
-            </div>
-            <div class="ambassador-item">
-              <div class="amb-name">Jean Dujardin</div>
-              <div class="amb-year">2014</div>
+        <section data-transition="none">
+          <div class="centered-layout">
+            <span class="label block-center">Marketing &middot; Campanii</span>
+            <div class="spacer-sm"></div>
+            <p class="what-else-quote">&ldquo;What Else?&rdquo;</p>
+            <div class="gold-divider centered wide"></div>
+            <p class="quote-footer">
+              2006 — George Clooney devine chipul unui brand. Nu un produs. Un
+              lifestyle.
+            </p>
+            <div class="spacer"></div>
+            <div class="ambassador-bar">
+              <div class="ambassador-item">
+                <div class="amb-name">George Clooney</div>
+                <div class="amb-year">2006</div>
+              </div>
+              <div class="ambassador-item">
+                <div class="amb-name">Naomi Campbell</div>
+                <div class="amb-year">2015</div>
+              </div>
+              <div class="ambassador-item">
+                <div class="amb-name">Penélope Cruz</div>
+                <div class="amb-year">2019</div>
+              </div>
+              <div class="ambassador-item">
+                <div class="amb-name">Jean Dujardin</div>
+                <div class="amb-year">2014</div>
+              </div>
             </div>
           </div>
-        </div>
-        <aside class="notes">
-          „What Else?" este cel mai de succes tagline de lux al anilor 2000. Comunică superioritate fără efort.
-        </aside>
-      </section>
+          <aside class="notes">
+            „What Else?" este cel mai de succes tagline de lux al anilor 2000.
+            Comunică superioritate fără efort.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 11 — Marketing: Digital, CSR & Distribution (2x2 Grid)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Ecosistemul de Marketing</span>
-        <h1>Strategia Integrată</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Ecosistemul de Marketing</span>
+          <h1>Strategia Integrată</h1>
+          <div class="gold-divider"></div>
 
-        <div class="grid-2x2">
-          <div class="content-card">
-            <span class="card-icon">&#9992;</span>
-            <div class="card-title">Marketing Online</div>
-            <p class="card-body">
-              Site cu experiență boutique, aplicație proprie,
-              e-commerce first — fiecare click este o experiență premium.
-            </p>
+          <div class="grid-2x2">
+            <div class="content-card">
+              <span class="card-icon">&#9992;</span>
+              <div class="card-title">Marketing Online</div>
+              <p class="card-body">
+                Site cu experiență boutique, aplicație proprie, e-commerce first
+                — fiecare click este o experiență premium.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon">&#9752;</span>
+              <div class="card-title">Responsabilitate Socială</div>
+              <p class="card-body">
+                Programul AAA, Rainforest Alliance, capsule reciclabile —
+                sustenabilitate ca valoare de brand.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon">&#9830;</span>
+              <div class="card-title">Distribuție</div>
+              <p class="card-body">
+                Direct-to-consumer, boutique exclusiv, fără supermarket-uri
+                clasice — protejarea percepției premium.
+              </p>
+            </div>
+            <div class="content-card">
+              <span class="card-icon">&#9733;</span>
+              <div class="card-title">Parteneriate</div>
+              <p class="card-body">
+                Hoteluri Marriott, companii aeriene premium, restaurante
+                Michelin — asocieri strategice cu luxul.
+              </p>
+            </div>
           </div>
-          <div class="content-card">
-            <span class="card-icon">&#9752;</span>
-            <div class="card-title">Responsabilitate Socială</div>
-            <p class="card-body">
-              Programul AAA, Rainforest Alliance, capsule reciclabile —
-              sustenabilitate ca valoare de brand.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="card-icon">&#9830;</span>
-            <div class="card-title">Distribuție</div>
-            <p class="card-body">
-              Direct-to-consumer, boutique exclusiv,
-              fără supermarket-uri clasice — protejarea percepției premium.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="card-icon">&#9733;</span>
-            <div class="card-title">Parteneriate</div>
-            <p class="card-body">
-              Hoteluri Marriott, companii aeriene premium,
-              restaurante Michelin — asocieri strategice cu luxul.
-            </p>
-          </div>
-        </div>
-        <aside class="notes">
-          Subliniază strategia de distribuție — Nespresso a evitat deliberat supermarket-urile pentru a proteja brandul.
-        </aside>
-      </section>
+          <aside class="notes">
+            Subliniază strategia de distribuție — Nespresso a evitat deliberat
+            supermarket-urile pentru a proteja brandul.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 12 — Rebranding & Repositioning (with animated counters)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Repozitionare &amp; Revitalizare</span>
-        <h1>Evoluția Brandului</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Repozitionare &amp; Revitalizare</span>
+          <h1>Evoluția Brandului</h1>
+          <div class="gold-divider"></div>
 
-        <div class="repo-section">
-          <!-- Moment 1: Vertuo System -->
-          <div>
-            <h3 class="repo-heading">2010 — Sistemul Vertuo</h3>
-            <div class="repo-flow">
-              <div class="repo-box">
-                <div class="repo-title">Înainte</div>
-                <p class="repo-text">Doar espresso european clasic — piață limitată geografic</p>
+          <div class="repo-section">
+            <!-- Moment 1: Vertuo System -->
+            <div>
+              <h3 class="repo-heading">2010 — Sistemul Vertuo</h3>
+              <div class="repo-flow">
+                <div class="repo-box">
+                  <div class="repo-title">Înainte</div>
+                  <p class="repo-text">
+                    Doar espresso european clasic — piață limitată geografic
+                  </p>
+                </div>
+                <div class="repo-arrow">&rarr;</div>
+                <div class="repo-box">
+                  <div class="repo-title">După</div>
+                  <p class="repo-text">
+                    Vertuo pentru America de Nord — cafea lungă, piață nouă
+                  </p>
+                </div>
+                <div class="repo-stat">
+                  <span
+                    class="stat-number medium"
+                    data-counter="40"
+                    data-suffix="%"
+                    >0</span
+                  >
+                  <p class="stat-label">Creștere piață</p>
+                </div>
               </div>
-              <div class="repo-arrow">&rarr;</div>
-              <div class="repo-box">
-                <div class="repo-title">După</div>
-                <p class="repo-text">Vertuo pentru America de Nord — cafea lungă, piață nouă</p>
-              </div>
-              <div class="repo-stat">
-                <span class="stat-number medium" data-counter="40" data-suffix="%">0</span>
-                <p class="stat-label">Creștere piață</p>
+            </div>
+
+            <!-- Moment 2: Sustainability Pivot -->
+            <div>
+              <h3 class="repo-heading">2019 — Pivotul Sustenabilității</h3>
+              <div class="repo-flow">
+                <div class="repo-box">
+                  <div class="repo-title">Înainte</div>
+                  <p class="repo-text">
+                    Lux tradițional — criticat pentru capsule de unică folosință
+                  </p>
+                </div>
+                <div class="repo-arrow">&rarr;</div>
+                <div class="repo-box">
+                  <div class="repo-title">După</div>
+                  <p class="repo-text">
+                    &ldquo;Lux responsabil&rdquo; — reciclare, carbon neutral
+                    până în 2022
+                  </p>
+                </div>
+                <div class="repo-stat">
+                  <span
+                    class="stat-number medium"
+                    data-counter="91"
+                    data-suffix="%"
+                    >0</span
+                  >
+                  <p class="stat-label">Aluminiu reciclabil</p>
+                </div>
               </div>
             </div>
           </div>
+          <aside class="notes">
+            Brandurile trebuie să evolueze. Pivotul spre sustenabilitate a fost
+            și etic și strategic — eco devine diferențiator de lux.
+          </aside>
+        </section>
 
-          <!-- Moment 2: Sustainability Pivot -->
-          <div>
-            <h3 class="repo-heading">2019 — Pivotul Sustenabilității</h3>
-            <div class="repo-flow">
-              <div class="repo-box">
-                <div class="repo-title">Înainte</div>
-                <p class="repo-text">Lux tradițional — criticat pentru capsule de unică folosință</p>
-              </div>
-              <div class="repo-arrow">&rarr;</div>
-              <div class="repo-box">
-                <div class="repo-title">După</div>
-                <p class="repo-text">&ldquo;Lux responsabil&rdquo; — reciclare, carbon neutral până în 2022</p>
-              </div>
-              <div class="repo-stat">
-                <span class="stat-number medium" data-counter="91" data-suffix="%">0</span>
-                <p class="stat-label">Aluminiu reciclabil</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <aside class="notes">
-          Brandurile trebuie să evolueze. Pivotul spre sustenabilitate a fost și etic și strategic — eco devine diferențiator de lux.
-        </aside>
-      </section>
-
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 13 — Conclusions (Fragments fade-up)
            ============================================================ -->
-      <section data-transition="none">
-        <span class="label">Concluzii &middot; Lecții de Branding</span>
-        <h1>Ce Învățăm</h1>
-        <div class="gold-divider"></div>
+        <section data-transition="none">
+          <span class="label">Concluzii &middot; Lecții de Branding</span>
+          <h1>Ce Învățăm</h1>
+          <div class="gold-divider"></div>
 
-        <div class="content-narrow">
-          <div class="conclusion-item fragment fade-up" data-fragment-index="1">
-            <span class="conclusion-number">01</span>
-            <span class="conclusion-text">Orice produs poate deveni lux dacă experiența justifică prețul</span>
+          <div class="content-narrow">
+            <div
+              class="conclusion-item fragment fade-up"
+              data-fragment-index="1"
+            >
+              <span class="conclusion-number">01</span>
+              <span class="conclusion-text"
+                >Orice produs poate deveni lux dacă experiența justifică
+                prețul</span
+              >
+            </div>
+            <div
+              class="conclusion-item fragment fade-up"
+              data-fragment-index="2"
+            >
+              <span class="conclusion-number">02</span>
+              <span class="conclusion-text"
+                >Identitatea vizuală coerentă construiește recunoaștere
+                instantanee</span
+              >
+            </div>
+            <div
+              class="conclusion-item fragment fade-up"
+              data-fragment-index="3"
+            >
+              <span class="conclusion-number">03</span>
+              <span class="conclusion-text"
+                >Alegerea ambasadorilor potriviți multiplică valoarea
+                percepută</span
+              >
+            </div>
+            <div
+              class="conclusion-item fragment fade-up"
+              data-fragment-index="4"
+            >
+              <span class="conclusion-number">04</span>
+              <span class="conclusion-text"
+                >Distribuția selectivă protejează exclusivitatea brandului</span
+              >
+            </div>
+            <div
+              class="conclusion-item fragment fade-up"
+              data-fragment-index="5"
+            >
+              <span class="conclusion-number">05</span>
+              <span class="conclusion-text"
+                >Sustenabilitatea nu mai e opțională — e parte din brandul
+                premium</span
+              >
+            </div>
           </div>
-          <div class="conclusion-item fragment fade-up" data-fragment-index="2">
-            <span class="conclusion-number">02</span>
-            <span class="conclusion-text">Identitatea vizuală coerentă construiește recunoaștere instantanee</span>
-          </div>
-          <div class="conclusion-item fragment fade-up" data-fragment-index="3">
-            <span class="conclusion-number">03</span>
-            <span class="conclusion-text">Alegerea ambasadorilor potriviți multiplică valoarea percepută</span>
-          </div>
-          <div class="conclusion-item fragment fade-up" data-fragment-index="4">
-            <span class="conclusion-number">04</span>
-            <span class="conclusion-text">Distribuția selectivă protejează exclusivitatea brandului</span>
-          </div>
-          <div class="conclusion-item fragment fade-up" data-fragment-index="5">
-            <span class="conclusion-number">05</span>
-            <span class="conclusion-text">Sustenabilitatea nu mai e opțională — e parte din brandul premium</span>
-          </div>
-        </div>
-        <aside class="notes">
-          Acestea sunt lecții transferabile. Orice brand din orice categorie poate învăța de la Nespresso.
-        </aside>
-      </section>
+          <aside class="notes">
+            Acestea sunt lecții transferabile. Orice brand din orice categorie
+            poate învăța de la Nespresso.
+          </aside>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            SLIDE 14 — Outro / Q&A
            ============================================================ -->
-      <section data-transition="none">
-        <div class="centered-layout">
-          <span class="label">Mulțumesc &middot; Întrebări</span>
-          <div class="gold-divider centered wide"></div>
-          <h2 class="text-center outro-quote">
-            &ldquo;Ce altceva ați vrea să știți?&rdquo;
-          </h2>
-          <div class="spacer"></div>
-          <p class="text-center presenter-info">
-            [NUMELE TĂU]<br>
-            [FACULTATEA / UNIVERSITATEA]
-          </p>
-          <div class="spacer"></div>
-          <span class="label-muted block-center">
-            NESPRESSO
-          </span>
-        </div>
-        <aside class="notes">
-          Încheie cu referința „What Else?" — leagă statistica de deschidere de final și arată coerență narativă.
-        </aside>
-      </section>
+        <section data-transition="none">
+          <div class="centered-layout">
+            <span class="label">Mulțumesc &middot; Întrebări</span>
+            <div class="gold-divider centered wide"></div>
+            <h2 class="text-center outro-quote">
+              &ldquo;Ce altceva ați vrea să știți?&rdquo;
+            </h2>
+            <div class="spacer"></div>
+            <p class="text-center presenter-info">
+              [NUMELE TĂU]<br />
+              [FACULTATEA / UNIVERSITATEA]
+            </p>
+            <div class="spacer"></div>
+            <span class="label-muted block-center"> NESPRESSO </span>
+          </div>
+          <aside class="notes">
+            Încheie cu referința „What Else?" — leagă statistica de deschidere
+            de final și arată coerență narativă.
+          </aside>
+        </section>
+      </div>
+      <!-- /.slides -->
+    </div>
+    <!-- /.reveal -->
 
-    </div><!-- /.slides -->
-  </div><!-- /.reveal -->
+    <!-- Reveal.js Core JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
 
-  <!-- Reveal.js Core JS -->
-  <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <!-- Reveal.js Notes Plugin (speaker view with S key) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
 
-  <!-- Reveal.js Notes Plugin (speaker view with S key) -->
-  <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <!-- Custom Animations -->
+    <script src="js/custom.js"></script>
 
-  <!-- Custom Animations -->
-  <script src="js/custom.js"></script>
+    <!-- Initialize Reveal.js -->
+    <script>
+      Reveal.initialize({
+        // Canvas
+        width: 1920,
+        height: 1080,
+        margin: 0,
+        minScale: 0.2,
+        maxScale: 2.0,
 
-  <!-- Initialize Reveal.js -->
-  <script>
-    Reveal.initialize({
-      // Canvas
-      width: 1920,
-      height: 1080,
-      margin: 0,
-      minScale: 0.2,
-      maxScale: 2.0,
+        // Navigation
+        controls: false,
+        controlsTutorial: false,
+        progress: true,
+        slideNumber: false,
+        hash: true,
+        history: true,
 
-      // Navigation
-      controls: false,
-      controlsTutorial: false,
-      progress: true,
-      slideNumber: false,
-      hash: true,
-      history: true,
+        // Transitions
+        transition: "none",
+        transitionSpeed: "fast",
+        backgroundTransition: "none",
 
-      // Transitions
-      transition: 'none',
-      transitionSpeed: 'fast',
-      backgroundTransition: 'none',
+        // Touch & keyboard
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: false,
+        navigationMode: "linear",
 
-      // Touch & keyboard
-      keyboard: true,
-      touch: true,
-      overview: true,
-      center: false,
-      navigationMode: 'linear',
+        // Fragments
+        fragments: true,
+        fragmentInURL: false,
 
-      // Fragments
-      fragments: true,
-      fragmentInURL: false,
+        // Speaker notes
+        showNotes: false,
 
-      // Speaker notes
-      showNotes: false,
+        // Auto-slide disabled
+        autoSlide: 0,
+        autoSlideStoppable: true,
 
-      // Auto-slide disabled
-      autoSlide: 0,
-      autoSlideStoppable: true,
-
-      // Plugins
-      plugins: [ RevealNotes ],
-    });
-  </script>
-
-</body>
+        // Plugins
+        plugins: [RevealNotes],
+      });
+    </script>
+  </body>
 </html>
