@@ -1,11 +1,10 @@
 /* ==========================================================================
    Nespresso Presentation — Custom Animations & Interactions
    - Animated counters (slides 1, 9, 12) with re-animation guard
-   - Timeline draw animation (slide 3) with reset on leave
+   - Vertical timeline auto-scroll (slide 4)
    - Vertical interactive timeline (slide 9)
    - Custom slide number counter (01 / 15)
    - Slide hint (title slide only)
-   - Ambient particle background with breathing opacity
    ========================================================================== */
 
 (function () {
@@ -36,26 +35,6 @@
     requestAnimationFrame(tick);
   }
 
-  // --- Timeline Draw Animation ---
-  function activateTimeline(slide) {
-    var track = slide.querySelector('.timeline-track');
-    if (track) {
-      track.classList.remove('active');
-      setTimeout(function () {
-        track.classList.add('active');
-      }, 400);
-    }
-  }
-
-  // --- Reset timeline when leaving a slide ---
-  function deactivateTimeline(slide) {
-    if (!slide) return;
-    var track = slide.querySelector('.timeline-track');
-    if (track) {
-      track.classList.remove('active');
-    }
-  }
-
   // --- Vertical Timeline Interactivity ---
   function initVerticalTimeline() {
     var items = document.querySelectorAll('.vt-item');
@@ -82,94 +61,10 @@
     Reveal.on('slidechanged', update);
   }
 
-  // --- Ambient Particle Background ---
-  function initParticles() {
-    var canvas = document.getElementById('particles-canvas');
-    if (!canvas) return;
-
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var particleCount = 20;
-    var resizeTimer;
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    resize();
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resize, 150);
-    });
-
-    // Create particles
-    for (var i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: 1.2 + Math.random() * 2,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.25,
-        baseOpacity: 0.06 + Math.random() * 0.1,
-        phase: Math.random() * Math.PI * 2,
-        // Warm gold and brown tones (visible on light bg)
-        color: Math.random() > 0.5 ? '189, 100, 22' : '64, 33, 8'
-      });
-    }
-
-    function draw(time) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-
-        // Update position
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap around edges
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
-        if (p.y < -10) p.y = canvas.height + 10;
-        if (p.y > canvas.height + 10) p.y = -10;
-
-        // Breathing opacity
-        var breathe = Math.sin(time * 0.0008 + p.phase) * 0.03;
-        var opacity = p.baseOpacity + breathe;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + p.color + ', ' + opacity + ')';
-        ctx.fill();
-      }
-
-      requestAnimationFrame(draw);
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  // --- Logo & Slide Number Dark/Light Toggle ---
+  // --- Slide Number Dark/Light Toggle ---
   function updateThemeElements(slide) {
     var isDark = slide.classList.contains('dark-slide') || slide.classList.contains('cover-slide');
-    var logo = document.querySelector('.nespresso-logo');
     var slideNum = document.querySelector('.custom-slide-number');
-
-    if (logo) {
-      // Hide persistent logo on cover slide (slide 0 has its own large logo)
-      if (slide.classList.contains('cover-slide')) {
-        logo.style.display = 'none';
-      } else {
-        logo.style.display = '';
-        if (isDark) {
-          logo.classList.add('logo-inverted');
-        } else {
-          logo.classList.remove('logo-inverted');
-        }
-      }
-    }
 
     if (slideNum) {
       if (isDark) {
@@ -184,9 +79,6 @@
   function onSlideChanged(event) {
     var slide = event.currentSlide;
 
-    // Reset previous slide's timeline
-    deactivateTimeline(event.previousSlide);
-
     // Toggle logo/slide-number for dark vs light slides
     updateThemeElements(slide);
 
@@ -197,14 +89,31 @@
       animateCounter(el, target);
     });
 
-    // Trigger timeline draw
-    activateTimeline(slide);
+    // Sync flip card states on slide entry (avoids stale animation classes)
+    var cardWrappers = slide.querySelectorAll('.card-wrapper.fragment');
+    cardWrappers.forEach(function (wrapper) {
+      var inner = wrapper.querySelector('.card-inner');
+      inner.classList.remove('flipped', 'unflipped', 'flipped-instant');
+      if (wrapper.classList.contains('visible')) {
+        inner.classList.add('flipped-instant');
+      }
+    });
+    var cardWrappersPos = slide.querySelectorAll('.card-wrapper-pos.fragment');
+    cardWrappersPos.forEach(function (wrapper) {
+      var inner = wrapper.querySelector('.card-inner-pos');
+      inner.classList.remove('flipped', 'unflipped', 'flipped-instant');
+      if (wrapper.classList.contains('visible')) {
+        inner.classList.add('flipped-instant');
+      }
+    });
+
   }
 
   // --- Initialize on Reveal Ready ---
   if (typeof Reveal !== 'undefined') {
     Reveal.on('ready', function (event) {
-      initParticles();
+      console.log('Reveal ready. Total slides:', Reveal.getTotalSlides());
+      console.log('Current slide index:', event.indexh);
       initVerticalTimeline();
       initSlideNumber();
 
@@ -213,6 +122,47 @@
     });
 
     Reveal.on('slidechanged', onSlideChanged);
+
+    // --- Fragment Events: Timeline Auto-Scroll + Flip Cards ---
+    Reveal.on('fragmentshown', function (event) {
+      var fragment = event.fragment;
+      // Vertical timeline auto-scroll
+      if (fragment.classList.contains('timeline-node-v')) {
+        var scrollArea = fragment.closest('.timeline-scroll-area');
+        if (scrollArea) {
+          fragment.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+      // Flip card forward (animated) — Slide 4
+      if (fragment.classList.contains('card-wrapper')) {
+        var inner = fragment.querySelector('.card-inner');
+        inner.classList.remove('unflipped', 'flipped-instant');
+        inner.classList.add('flipped');
+      }
+      // Flip card forward (animated) — Slide 5
+      if (fragment.classList.contains('card-wrapper-pos')) {
+        var innerPos = fragment.querySelector('.card-inner-pos');
+        innerPos.classList.remove('unflipped', 'flipped-instant');
+        innerPos.classList.add('flipped');
+      }
+    });
+
+    Reveal.on('fragmenthidden', function (event) {
+      var fragment = event.fragment;
+      // Flip card back (animated) — Slide 4
+      if (fragment.classList.contains('card-wrapper')) {
+        var inner = fragment.querySelector('.card-inner');
+        inner.classList.remove('flipped', 'flipped-instant');
+        inner.classList.add('unflipped');
+      }
+      // Flip card back (animated) — Slide 5
+      if (fragment.classList.contains('card-wrapper-pos')) {
+        var innerPos = fragment.querySelector('.card-inner-pos');
+        innerPos.classList.remove('flipped', 'flipped-instant');
+        innerPos.classList.add('unflipped');
+      }
+    });
   }
 
 })();
+

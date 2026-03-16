@@ -30,15 +30,15 @@
   --bg-primary: #FAF9F8;
   --bg-card: #FFFFFF;
   --border-card: #E6E0D8;
-  --gold-primary: #BD6416;
+  --gold-primary: #C3A572;
   --gold-light: #FDAF3E;
   --gold-deep: #A07840;
   --copper: #B87333;
   --text-primary: #2E2E2C;
   --text-secondary: #6B5D4F;
   --text-muted: #6B5D4F;
-  --border-gold: rgba(189, 100, 22, 0.25);
-  --border-gold-strong: rgba(189, 100, 22, 0.5);
+  --border-gold: rgba(195, 165, 114, 0.25);
+  --border-gold-strong: rgba(195, 165, 114, 0.5);
   --overlay-dark: rgba(10, 10, 10, 0.78);
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -49,6 +49,10 @@
   --dark-text-secondary: #A69882;
   --dark-text-muted: #7A6E5D;
   --dark-bg-card: rgba(26, 18, 9, 0.6);
+
+  /* Brand colors */
+  --brand-brown: #4e3227;
+  --brand-beige: #d9c7ba;
 }
 
 /* --- Base Reveal Overrides --- */
@@ -80,43 +84,17 @@
   justify-content: center;
 }
 
-/* Subtle dot pattern for light slides */
-.reveal .slides section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 1px 1px, rgba(189, 100, 22, 0.04) 1px, transparent 0);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.reveal .slides section > * {
-  position: relative;
-  z-index: 1;
-}
-
 /* ==========================================================================
    DARK SLIDE OVERRIDES (Slides 0 and 1)
    ========================================================================== */
 .reveal .slides section.dark-slide {
-  background: var(--dark-bg) !important;
   color: var(--dark-text);
 }
 
-/* Slide 0 — Cover: warm brown */
+/* Slide 0 — Cover: transparent so data-background-image (Fundal.png) shows through */
 .reveal .slides section.cover-slide {
-  background: #362217 !important;
+  background: transparent !important;
   color: var(--dark-text);
-}
-
-/* Dark slide dot pattern */
-.reveal .slides section.dark-slide::before {
-  background:
-    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.25) 100%),
-    radial-gradient(circle at 1px 1px, rgba(189, 100, 22, 0.03) 1px, transparent 0);
-  background-size: 100% 100%, 40px 40px;
 }
 
 /* Cover slide divider: wider, thicker, closer to logo */
@@ -124,11 +102,6 @@
   width: 320px;
   height: 4px;
   margin-top: -5px;
-}
-
-/* Cover slide: flat solid color, no overlays */
-.reveal .slides section.cover-slide::before {
-  background: none;
 }
 
 /* Dark slide typography overrides */
@@ -314,7 +287,7 @@
   line-height: 1.45;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* --- Caption / Source --- */
@@ -398,7 +371,7 @@
 
 .content-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(189, 100, 22, 0.1);
+  box-shadow: 0 12px 40px rgba(195, 165, 114, 0.1);
   border-color: var(--gold-primary);
 }
 
@@ -488,7 +461,7 @@
 .img-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #2E2E2C 0%, #362217 50%, rgba(189, 100, 22, 0.15) 100%);
+  background: linear-gradient(135deg, #2E2E2C 0%, #362217 50%, rgba(195, 165, 114, 0.15) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -512,69 +485,170 @@
   opacity: 0.6;
 }
 
-/* --- Horizontal Timeline (Slide 3) --- */
-.timeline-container {
-  position: relative;
-  width: 100%;
-  padding: 40px 0;
+/* --- Vertical Timeline (Slide 4 — Repere Istorice) --- */
+.timeline-scroll-area {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 60px 80px;
+  scrollbar-width: thin;
+  scrollbar-color: #C3A572 transparent;
 }
 
-.timeline-track {
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
-  width: 0;
-  transition: width 2.5s ease-out;
+.timeline-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+
+.timeline-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.timeline-scroll-area::-webkit-scrollbar-thumb {
+  background: #C3A572;
+  border-radius: 2px;
+}
+
+.vertical-timeline-v {
+  position: relative;
+  padding-left: 50px;
+  margin-top: 60px;
+}
+
+.vertical-timeline-v::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 5%;
-  right: 5%;
-  max-width: 90%;
+  left: 17px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
 }
 
-.timeline-track.active {
-  width: 90%;
-}
-
-.timeline-nodes {
-  display: flex;
-  justify-content: space-between;
+.timeline-node-v {
   position: relative;
-  padding: 0 5%;
+  margin-bottom: 160px;
+  padding-left: 32px;
 }
 
-.timeline-node {
-  text-align: center;
-  position: relative;
-  flex: 1;
+.timeline-node-v:last-child {
+  margin-bottom: 0;
 }
 
-.timeline-node .node-dot {
-  width: 10px;
-  height: 10px;
-  background: var(--gold-primary);
+.node-dot-v {
+  width: 14px;
+  height: 14px;
+  background: #C3A572;
   border-radius: 50%;
-  margin: 0 auto 16px;
-  position: relative;
+  position: absolute;
+  left: -39px;
+  top: 6px;
   z-index: 2;
-  box-shadow: 0 0 12px rgba(189, 100, 22, 0.3);
 }
 
-.timeline-node .node-year {
+.node-content-v {
+  display: block;
+}
+
+.node-content-v.has-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.node-text-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.node-year-v {
   font-family: 'Campton', sans-serif;
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--gold-primary);
-  display: block;
-  margin-bottom: 8px;
+  line-height: 1;
+  margin-bottom: 6px;
 }
 
-.timeline-node .node-text {
+.node-badge {
+  display: inline-block;
   font-family: 'Campton', sans-serif;
-  font-size: clamp(0.7rem, 1vw, 0.95rem);
-  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+.badge-launch {
+  background: rgba(195, 165, 114, 0.12);
+  color: #C3A572;
+}
+
+.badge-strategy {
+  background: rgba(55, 95, 94, 0.12);
+  color: #375F5E;
+}
+
+.badge-sustain {
+  background: rgba(148, 169, 109, 0.12);
+  color: #94A96D;
+}
+
+.badge-identity {
+  background: rgba(46, 46, 44, 0.12);
+  color: #2E2E2C;
+}
+
+.node-title-v {
+  font-family: 'Campton', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2E2E2C;
+  margin-bottom: 4px;
+}
+
+.node-detail-v {
+  font-family: 'Campton', sans-serif;
+  font-size: 0.95rem;
+  color: #6B5D4F;
   line-height: 1.5;
-  max-width: 180px;
-  margin: 0 auto;
+}
+
+.node-img {
+  width: 300px;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.node-img-lg {
+  width: 400px;
+  height: 260px;
+}
+
+.node-img-placeholder {
+  width: 300px;
+  min-width: 300px;
+  height: 180px;
+  border-radius: 8px;
+  background: #E6E0D8;
+  border: 1px dashed #C3A572;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Campton', sans-serif;
+  font-size: 0.7rem;
+  color: #6B5D4F;
+  line-height: 1.4;
 }
 
 /* --- Vertical Interactive Timeline (Slide 9) --- */
@@ -617,7 +691,7 @@
 .vt-item:hover::before,
 .vt-item.active::before {
   background: var(--gold-primary);
-  box-shadow: 0 0 16px rgba(189, 100, 22, 0.4);
+  box-shadow: 0 0 16px rgba(195, 165, 114, 0.4);
 }
 
 .vt-item .vt-year {
@@ -680,7 +754,7 @@
 .pyramid-level:nth-child(4) { width: 90%; }
 
 .pyramid-level.highlight {
-  background: rgba(189, 100, 22, 0.08);
+  background: rgba(195, 165, 114, 0.08);
   border: 1px solid var(--border-gold-strong);
   color: var(--gold-primary);
   font-weight: 700;
@@ -738,7 +812,7 @@
   align-items: baseline;
   gap: 24px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(189, 100, 22, 0.1);
+  border-bottom: 1px solid rgba(195, 165, 114, 0.1);
 }
 
 .conclusion-item:last-child {
@@ -812,27 +886,6 @@
   margin-bottom: 0.3em;
 }
 
-/* --- Mini Timeline (bottom of origin slide) --- */
-.mini-timeline {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-gold);
-}
-
-.mini-timeline span {
-  font-family: 'Campton', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-.mini-timeline .active-year {
-  color: var(--gold-primary);
-  font-weight: 700;
-}
 
 /* --- Ambassador Bar --- */
 .ambassador-bar {
@@ -861,30 +914,6 @@
   text-transform: uppercase;
 }
 
-/* ==========================================================================
-   NESPRESSO LOGO (SVG image, top-left)
-   ========================================================================== */
-.nespresso-logo {
-  position: fixed;
-  top: 28px;
-  left: 40px;
-  z-index: 100;
-  height: 30px;
-  pointer-events: none;
-  transition: filter 0.4s ease;
-}
-
-.nespresso-logo img {
-  height: 100%;
-  width: auto;
-  display: block;
-}
-
-/* On dark slides, JS adds .logo-inverted class */
-.nespresso-logo.logo-inverted img {
-  filter: brightness(0) invert(1);
-}
-
 /* Cover slide — large centered logo */
 .cover-logo {
   width: 700px;
@@ -899,7 +928,7 @@
    ========================================================================== */
 .reveal .progress {
   height: 2px;
-  background: rgba(189, 100, 22, 0.15);
+  background: rgba(195, 165, 114, 0.15);
 }
 
 .reveal .progress span {
@@ -922,17 +951,6 @@
 .reveal .slides section .fragment.fade-up.visible {
   transform: translateY(0);
   opacity: 1;
-}
-
-/* --- Particle Canvas --- */
-#particles-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
 }
 
 /* --- Speaker Notes Styling --- */
@@ -1020,26 +1038,23 @@
 .reveal .slides section.present > *:not(.fragment) {
   animation: slideContentIn 0.55s ease-out both;
 }
-.reveal .slides section.present > *:nth-child(1) { animation-delay: 0.05s; }
-.reveal .slides section.present > *:nth-child(2) { animation-delay: 0.12s; }
-.reveal .slides section.present > *:nth-child(3) { animation-delay: 0.19s; }
-.reveal .slides section.present > *:nth-child(4) { animation-delay: 0.26s; }
-.reveal .slides section.present > *:nth-child(5) { animation-delay: 0.33s; }
-.reveal .slides section.present > *:nth-child(6) { animation-delay: 0.40s; }
 
 @keyframes slideContentIn {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
 
 /* Exclude speaker notes from entrance animation */
 .reveal .slides section.present > aside.notes {
+  animation: none;
+}
+
+/* Exclude flip-grid from entrance animation (transform flattens 3D context) */
+.reveal .slides section.present > .flip-grid {
   animation: none;
 }
 
@@ -1149,3 +1164,641 @@
     right: 24px;
   }
 }
+
+/* ============================================================
+   SLIDE 3 — Split Layout: Image Left + Content + Capsule Right
+   ============================================================ */
+.slide-3-3d {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-3-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-3-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-3-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 80px 50px;
+}
+
+.slide-3-content {
+  flex-shrink: 0;
+}
+
+.slide-3-content .label {
+  font-size: 1.1rem;
+}
+
+/* --- Timeline slide (Slide 4) overrides --- */
+.reveal .slides section.timeline-slide {
+  padding: 0;
+  overflow: hidden;
+}
+
+.timeline-slide .label {
+  font-size: 1.1rem;
+}
+
+.slide-3-capsule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.slide-3-capsule model-viewer {
+  width: 360px;
+  height: 340px;
+  background: transparent;
+  --poster-color: transparent;
+  border: none;
+  outline: none;
+}
+
+/* ==========================================================================
+   FLIP CARDS (Slide 4 — Identitate Vizuală)
+   ========================================================================== */
+
+/* Slide 4 section: top-align content + larger label (match Slide 3) */
+.reveal .slides section:has(.flip-grid) {
+  justify-content: flex-start;
+}
+
+.reveal .slides section:has(.flip-grid) > .label {
+  font-size: 1.1rem;
+}
+
+/* Slide 5 section: top-align content + larger label (mirror Slide 4) */
+.reveal .slides section:has(.flip-grid-pos) {
+  justify-content: flex-start;
+}
+
+.reveal .slides section:has(.flip-grid-pos) > .label {
+  font-size: 1.1rem;
+}
+
+@keyframes flip-scale-up-hor {
+  0% { transform: scale(1) rotateX(0); }
+  50% { transform: scale(1.2) rotateX(-90deg); }
+  100% { transform: scale(1) rotateX(-180deg); }
+}
+
+@keyframes flip-scale-down-hor {
+  0% { transform: scale(1) rotateX(-180deg); }
+  50% { transform: scale(1.2) rotateX(-90deg); }
+  100% { transform: scale(1) rotateX(0); }
+}
+
+.flip-divider {
+  width: 40px;
+  height: 3px;
+  background: #C3A572;
+  margin: 12px 0 20px;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.card-wrapper {
+  height: 200px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-inner.flipped {
+  animation: flip-scale-up-hor 0.5s linear both;
+}
+
+.card-inner.unflipped {
+  animation: flip-scale-down-hor 0.5s linear both;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E6E0D8;
+  border-radius: 6px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-back {
+  transform: rotateX(180deg);
+  border-color: #C3A572;
+  padding: 20px 28px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card-back-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2E2E2C;
+  align-self: flex-start;
+}
+
+.card-back-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Keep flip cards visible — Reveal.js hides .fragment by default */
+.reveal .slides .flip-grid .fragment,
+.reveal .slides .flip-grid .fragment.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Instant back-face state for slide re-entry (no animation) */
+.card-inner.flipped-instant {
+  transform: rotateX(-180deg);
+}
+
+.flip-icon {
+  color: #C3A572;
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.flip-cat {
+  font-family: 'Campton', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: #2E2E2C;
+  margin-bottom: 10px;
+}
+
+.flip-desc {
+  font-family: 'Campton', sans-serif;
+  font-size: 16px;
+  color: #6B5D4F;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-slogan {
+  font-family: 'Campton', sans-serif;
+  font-size: 26px;
+  font-style: italic;
+  color: #C3A572;
+  margin: 0;
+}
+
+/* Flip card back — Logo comparison */
+.logo-compare {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-box {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.logo-box-old {
+  background: #2E2E2C;
+}
+
+.logo-box-old .logo-letter {
+  font-family: 'Campton', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #d9c7ba;
+}
+
+.logo-box-old .logo-label {
+  font-family: 'Campton', sans-serif;
+  font-size: 12px;
+  color: #d9c7ba;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.logo-box-new {
+  background: #4e3227;
+}
+
+.logo-box-new .logo-letter {
+  font-family: 'Campton', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #C3A572;
+}
+
+.logo-box-new .logo-label {
+  font-family: 'Campton', sans-serif;
+  font-size: 12px;
+  color: #C3A572;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.logo-arrow {
+  font-size: 18px;
+  color: #C3A572;
+}
+
+/* Flip card back — Color swatches */
+.flip-swatches {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.flip-swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.flip-swatch-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #E6E0D8;
+}
+
+.flip-swatch-label {
+  font-family: 'Campton', sans-serif;
+  font-size: 12px;
+  color: #6B5D4F;
+  letter-spacing: 0.1em;
+}
+
+/* Flip card back — Typography sample */
+.flip-typo-sample {
+  font-family: 'Campton', sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #2E2E2C;
+  margin-bottom: 10px;
+}
+
+.flip-typo-meta {
+  font-family: 'Campton', sans-serif;
+  font-size: 14px;
+  color: #6B5D4F;
+  margin: 2px 0;
+  text-align: center;
+}
+
+/* ===== SLIDE 5: AXE DE POZIȚIONARE ===== */
+
+.reveal .slides section .pos-tagline {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #6B5D4F;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.flip-grid-pos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Keep pos flip cards visible (Reveal.js hides .fragment by default) */
+.reveal .slides .flip-grid-pos .fragment,
+.reveal .slides .flip-grid-pos .fragment.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Exclude from entrance animation (transform flattens 3D context) */
+.reveal .slides section.present > .flip-grid-pos {
+  animation: none;
+}
+
+.card-wrapper-pos {
+  height: 200px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-inner-pos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-inner-pos.flipped {
+  animation: flip-scale-up-hor 0.5s linear both;
+}
+
+.card-inner-pos.unflipped {
+  animation: flip-scale-down-hor 0.5s linear both;
+}
+
+.card-inner-pos.flipped-instant {
+  transform: rotateX(-180deg);
+}
+
+.card-front-pos,
+.card-back-pos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E6E0D8;
+  border-radius: 6px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-back-pos {
+  transform: rotateX(180deg);
+  border-color: #C3A572;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 28px;
+}
+
+.flip-icon-pos {
+  color: #C3A572;
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.flip-cat-pos {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2E2E2C;
+}
+
+.card-back-label-pos {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6B5D4F;
+  align-self: flex-start;
+}
+
+.card-back-content-pos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.pos-back-lines {
+  font-size: 0.95rem;
+  color: #2E2E2C;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.pos-situations {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.pos-situation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pos-situation-item span {
+  font-size: 0.8rem;
+  color: #6B5D4F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SLIDE 6 — Portofoliul de Branduri (Split layout)
+   ========================================================================== */
+
+.portfolio-split {
+  display: flex;
+  height: 100%;
+  gap: 0;
+  align-items: stretch;
+}
+
+.portfolio-left {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 36px;
+}
+
+.portfolio-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 36px;
+}
+
+.portfolio-separator {
+  width: 1px;
+  background: #E6E0D8;
+  align-self: center;
+  height: 75%;
+  flex-shrink: 0;
+  margin: 0 8px;
+}
+
+.portfolio-section-label {
+  font-family: 'Campton', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C3A572;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.portfolio-section-title {
+  font-family: 'Campton', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2E2E2C;
+  margin: 8px 0 0;
+}
+
+.portfolio-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E0D8;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  border-color: #C3A572;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-card:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-card-highlight {
+  border: 1px solid #C3A572;
+  border-left: 4px solid #C3A572;
+}
+
+.portfolio-card-name {
+  font-family: 'Campton', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2E2E2C;
+}
+
+.portfolio-tag {
+  font-family: 'Campton', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+  background: #F5F0EB;
+  color: #6B5D4F;
+  flex-shrink: 0;
+}
+
+.portfolio-tag-gold {
+  background: #C3A572;
+  color: #FFFFFF;
+}
+
+/* Right side: vertical product cards */
+.portfolio-product-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E0D8;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-product-card:hover {
+  border-color: #C3A572;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-product-card:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-product-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.portfolio-product-title {
+  font-family: 'Campton', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2E2E2C;
+}
+
+.portfolio-badge {
+  font-family: 'Campton', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #C3A572;
+  color: #FFFFFF;
+}
+
+.portfolio-badge-teal {
+  background: #375F5E;
+}
+
+.portfolio-product-desc {
+  font-family: 'Campton', sans-serif;
+  font-size: 15px;
+  color: #6B5D4F;
+  line-height: 1.5;
+  margin: 0;
+}
+

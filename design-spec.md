@@ -1,94 +1,94 @@
 # Nespresso Presentation — Design Specification
-# Based on nespresso.com official design system (2025-2026)
 
 ---
 
 ## Design Philosophy
 
-The presentation must look and feel like the nespresso.com website itself:
-**Minimalist dark luxury with Art Deco DNA and restrained motion.**
+The presentation must look and feel like nespresso.com:
+**Minimalist luxury with Art Deco DNA and restrained motion.**
 
 Key principles:
 - **Quiet confidence** — no ornate patterns, no excessive decoration
 - **Monochrome dominance** — black and white create the luxury foundation
 - **Warm gold accents** — used sparingly for emphasis and emotional warmth
 - **Generous whitespace** — the primary luxury signifier
-- **Photography-driven** — moody, high-contrast imagery with dramatic lighting
 - **Geometric precision** — clean lines, structured layouts, Art Deco influence
+- **No particle backgrounds, vignette, dot patterns, or parallax**
 
 ---
 
-## Color Palette (from Nespresso Brand Book)
+## Color Palette
 
-### Primary Brand Colors
+### Primary Colors
 
-| Official Name      | Hex         | RGB              | Usage in Presentation                          |
-|--------------------|-------------|------------------|-------------------------------------------------|
-| **Ultimate Black** | `#000000`   | (0, 0, 0)       | Primary slide backgrounds, hero sections        |
-| **Soft Black**     | `#2E2E2C`   | (46, 46, 44)     | Secondary backgrounds, text on light slides      |
-| **Pure White**     | `#FFFFFF`   | (255, 255, 255)  | Text on dark backgrounds, clean sections         |
-| **Crema Gold**     | `#BD6416`   | (189, 100, 22)   | Primary accent — dividers, highlights, CTAs      |
-| **Light Gold**     | `#FDAF3E`   | (253, 175, 62)   | Secondary accent — hover states, emphasis         |
-| **Roasted Brown**  | `#402108`   | (64, 33, 8)      | Deep accent — coffee heritage elements           |
-| **Blooming Greige**| `#E6C797`   | (230, 199, 151)  | Warm neutral — subtle backgrounds, captions      |
+| Name                 | Hex       | RGB              | Usage                                     |
+|----------------------|-----------|------------------|-------------------------------------------|
+| **Warm Brown**       | `#362217` | (54, 34, 23)     | Viewport bg                               |
+| **Light Cream**      | `#FAF9F8` | (250, 249, 248)  | Default slide background (slides 1–14)    |
+| **Dark Charcoal**    | `#2E2E2C` | (46, 46, 44)     | Text on light slides                      |
+| **Warm Gray-Brown**  | `#6B5D4F` | (107, 93, 79)    | Subtext, captions on light slides         |
+| **Pure White**       | `#FFFFFF` | (255, 255, 255)  | Text on dark slides, card backgrounds     |
+| **Card Border**      | `#E6E0D8` | (230, 224, 216)  | Card borders (warm beige)                 |
+| **Crema Gold**       | `#C3A572` | (195, 165, 114)  | Primary accent — dividers, stats, highlights |
+| **Light Gold**       | `#FDAF3E` | (253, 175, 62)   | Secondary accent — hover states           |
 
-### Extended Digital Palette
+### Sustainability Colors
 
-| Color              | Hex         | Usage                                           |
-|--------------------|-------------|-------------------------------------------------|
-| Dark Brown Deep    | `#4B1E0D`   | Rich accent for coffee-related sections          |
-| Steel Blue         | `#2779A7`   | Vertuo sub-brand references                      |
-| Sage Green         | `#94A96D`   | Sustainability sections (Slide 10)               |
-| Dark Teal          | `#375F5E`   | Accent for environmental content                 |
+| Name               | Hex       | Usage                                  |
+|--------------------|-----------|----------------------------------------|
+| **Sage Green**     | `#94A96D` | Sustainability card borders/accents    |
+| **Dark Teal**      | `#375F5E` | Environmental content accents          |
+
+### Brand Colors
+
+| Name               | Hex       | Usage                                  |
+|--------------------|-----------|----------------------------------------|
+| **Brand Brown**    | `#4e3227` | Brand identity accent                  |
+| **Brand Beige**    | `#d9c7ba` | Brand identity accent                  |
 
 ### Color Usage Rules
-- **70% black/dark** — backgrounds dominate
-- **20% white** — text, clean sections, contrast
-- **10% gold/warm accents** — sparingly, for maximum impact
-- Gold (`#BD6416`) is NEVER used for large background areas — only for thin lines, small accents, icons, and highlights
-- Alternate between dark and light sections to create visual rhythm (matching nespresso.com's section alternation pattern)
-- Cherry Red is part of brand book but MUST NEVER be dominant — avoid using it
+- Gold (`#C3A572`) is NEVER used for large background areas — only for thin lines, small accents, icons, and highlights
+- Max border-radius: 4px (Art Deco = geometric precision)
 
 ---
 
-## Typography
+## Typography — Campton
 
-### Primary: Nespresso Lucas (Proprietary)
-Nespresso's custom typeface designed by **Jean François Porchez / ZeCraft** through agency **FutureBrand** (2014). Geometric sans-serif inspired by Italian vernacular lettering and 1930s Art Deco. Mono-linear, clean, elegant.
+### Font Source
+Local .otf files from `assets/fonts/`. Loaded via `@font-face` with `format('opentype')`.
 
-**Since Nespresso Lucas is proprietary and unavailable, use these Google Fonts substitutes:**
+| File              | Weight | font-weight |
+|-------------------|--------|-------------|
+| CamptonThin       | Thin       | 100 |
+| CamptonExtraLight | ExtraLight | 200 |
+| CamptonLight      | Light      | 300 |
+| CamptonBook       | Book       | 400 |
+| CamptonMedium     | Medium     | 500 |
+| CamptonSemiBold   | SemiBold   | 600 |
+| CamptonBold       | Bold       | 700 |
+| CamptonExtraBold  | ExtraBold  | 800 |
+| CamptonBlack      | Black      | 900 |
 
-| Role                | Nespresso Original     | Google Font Substitute         | Weight          |
-|---------------------|------------------------|--------------------------------|-----------------|
-| Hero display text   | Nespresso Lucas XtraBd | **Josefin Sans ExtraBold**     | 800             |
-| Primary headings    | Nespresso Lucas Bold   | **Josefin Sans Bold**          | 700             |
-| Secondary headings  | Nespresso Lucas SemiBd | **Josefin Sans SemiBold**      | 600             |
-| Subheadings/labels  | Nespresso Lucas Med    | **Josefin Sans Medium**        | 500             |
-| Body text           | Nespresso Lucas Regular| **Josefin Sans Regular**       | 400             |
-| Captions/fine print | Nespresso Lucas Light  | **Josefin Sans Light**         | 300             |
+Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 
-**Why Josefin Sans?** — It's the closest freely available match to Nespresso Lucas: geometric sans-serif construction, Art Deco influence, mono-linear strokes, elegant at display sizes, clean at body sizes. Much closer than Playfair Display (which is a serif) or Lato (which lacks the Art Deco character).
+**NO Google Fonts** — no Playfair Display, Cormorant Garamond, Lato, or Josefin Sans.
 
-**Secondary body font:** **Lato** — for longer paragraphs, speaker notes, and small UI text where readability at small sizes matters more than Art Deco character.
+### Typography Roles
 
-### Typography Scale (in CSS clamp for responsive)
-
-```css
---font-hero:      clamp(3rem, 6vw, 5rem);      /* Hero/title slides */
---font-h1:        clamp(2.2rem, 4vw, 3.5rem);   /* Slide titles */
---font-h2:        clamp(1.6rem, 3vw, 2.4rem);   /* Section headers */
---font-h3:        clamp(1.2rem, 2vw, 1.8rem);   /* Subheadings */
---font-body:      clamp(1rem, 1.5vw, 1.3rem);   /* Body text */
---font-caption:   clamp(0.8rem, 1.2vw, 1rem);   /* Captions, labels */
---font-stat:      clamp(3rem, 8vw, 6rem);        /* Big stat numbers */
-```
+| Role            | Weight        | Style       |
+|-----------------|---------------|-------------|
+| Hero display    | ExtraBold 800 | UPPERCASE   |
+| Slide titles    | Bold 700      | UPPERCASE   |
+| Subheadings     | SemiBold 600  | UPPERCASE   |
+| Labels/UI       | Medium 500    | UPPERCASE   |
+| Body text       | Book 400      | Normal case |
+| Captions        | Light 300     | Normal case |
 
 ### Typography Rules
-- **ALL CAPS** for: slide titles, CTA buttons, navigation labels, section headers (matching Nespresso wordmark style)
+- **ALL CAPS** for: slide titles, navigation labels, section headers
 - **Letter-spacing: 0.15em–0.3em** on uppercase text (Art Deco spacing)
 - **Regular case** for: body text, descriptions, speaker notes
-- **Italics** reserved for: quotes, citations, emphasis words
-- **Bold** reserved for: key data points, highlighted terms
+- **Italics** reserved for: quotes, citations, emphasis (e.g. `.pos-tagline`)
 - Never use more than 2 font weights on a single slide
 
 ---
@@ -96,58 +96,57 @@ Nespresso's custom typeface designed by **Jean François Porchez / ZeCraft** thr
 ## Layout Patterns
 
 ### Slide Structure
-Every slide follows a consistent structure:
 ```
 ┌──────────────────────────────────────────┐
-│  [Persistent Nespresso logo — top left]  │
-│                                          │
 │                                          │
 │         [CONTENT AREA]                   │
-│         Centered, max-width 80%          │
-│         Generous padding                 │
-│                                          │
+│         Edge-to-edge, margin: 0          │
 │                                          │
 │  [Gold thin line — bottom accent]        │
 │  [Slide number — bottom right]           │
 └──────────────────────────────────────────┘
 ```
+> Persistent top-left logo removed (11 Mar 2026). Slide 0 retains its own centered 700px logo.
 
-### Layout Types (matching nespresso.com patterns)
+### Layout Types
 
 **1. Hero Layout** (Slides 0, 5, 14)
-- Full-screen dark background
 - Centered text, large display typography
-- Thin gold horizontal divider above/below key text
+- Thin gold horizontal divider
 - Dramatic negative space
 
-**2. Split Layout** (Slides 3, 7, 8)
-- Two-column: 50/50 or 60/40
-- One side: text content
-- Other side: image/visual placeholder
-- Vertical gold divider between columns (optional)
+**2. Split Layout** (Slide 1: 45/55 photo+model-viewer, Slide 7: 50/50, Slide 9: 50/50)
+- Two-column grid
 
-**3. Card Grid** (Slides 2, 4, 6, 11)
-- 2x2 or 3-column grid
-- Cards with subtle border (1px `#2E2E2C`) or no border
-- Dark card backgrounds (`#0A0A0A` or `#1A1A1A`) on black slide
-- Hover: thin gold border glow + slight scale
+**3. Card Grid** (Slides 8, 11)
+- 2×2 or 3-column grid
+- Cards with gold top border + subtle side/bottom borders
+- Hover: gold border glow + translateY(-4px)
 
-**4. Timeline Layout** (Slides 3, 9)
-- Horizontal or vertical line in gold (`#BD6416`)
-- Nodes/dots along the line
-- Content panels attached to nodes
-- Progressive reveal with fragments
+**3b. Flip Card Grid** (Slides 3 and 4)
+- 2×2 CSS grid (`.flip-grid` / `.flip-grid-pos`), interactive flip cards driven by Reveal.js fragments
+- Fragment forward (→): `fragmentshown` → `.flipped` on `.card-inner` / `.card-inner-pos`
+- Fragment back (←): `fragmenthidden` → `.unflipped` on `.card-inner` / `.card-inner-pos`
+- Re-entry sync: `slidechanged` → `.flipped-instant` for already-visible cards
+- Front face: icon + label only (centered). Back face: label top-left + content centered.
+- 3D flip animation via `@keyframes flip-scale-up-hor` / `flip-scale-down-hor` (scale 1.2 at midpoint, rotateX). Keyframes shared between both slides — not duplicated.
+- `will-change: transform` on `.card-inner`/`.card-inner-pos`, `transform-style: preserve-3d` on `.card-wrapper`/`.card-wrapper-pos`
+- **Critical**: `.flip-grid-pos` must use `margin: 0` (NOT `margin: 0 auto`) — horizontal auto margins override `align-self: stretch` and collapse the grid to near-zero width
 
-**5. Stats/Counter Layout** (Slides 1, 12)
-- Large stat numbers in gold (`#BD6416`) with `--font-stat`
-- Label below in white uppercase, letter-spaced
-- Animated counter on slide enter
-- 3-4 stats in a row
+**4. Timeline Layout** (Slides 2, 10)
+- Vertical scrollable timeline (slide 2): 10 nodes with images, badges, gold line, fragment fade-up, auto-scroll
+- Vertical interactive timeline (slide 10): hover-activated regions
+- Nodes along the gold line, progressive reveal with fragments
 
-**6. List/Points Layout** (Slides 13)
-- Clean vertical list
-- Each point preceded by a thin gold dash or line (not bullet points)
-- Fragment fade-up animation for progressive reveal
+**5. Stats/Counter Layout** (Slides 9, 10, 12)
+- Large stat numbers in gold
+- Label below, animated counter on slide enter
+
+**6. List/Points Layout** (Slide 13)
+- Numbered vertical list, fragment fade-up
+
+**7. Repositioning Layout** (Slide 12)
+- Two "Înainte → După" blocks with `.repo-flow` and inline animated stat counters
 
 ---
 
@@ -156,106 +155,98 @@ Every slide follows a consistent structure:
 ### Gold Divider
 ```css
 .gold-divider {
-  width: 60px;
-  height: 2px;
-  background: #BD6416;
-  margin: 1.5rem auto;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-primary), var(--gold-deep));
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
 }
-/* Wide variant */
-.gold-divider--wide {
-  width: 120px;
-}
+.gold-divider.wide { width: 310px; }
+.gold-divider.centered { margin: 24px auto; }
 ```
-
-### Buttons (matching nespresso.com)
-- **Primary**: Solid black fill, white uppercase text, 0-4px border-radius, letter-spacing 0.15em
-- **Secondary**: Transparent with 1-2px white/gold border, uppercase text
-- **Hover**: Color inversion or gold border glow
-- All buttons: Josefin Sans Medium, uppercase, generous padding
 
 ### Cards
 ```css
 .content-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2rem;
-  transition: all 0.3s ease;
+  border-top: 2px solid var(--gold-primary);
+  border-left: 1px solid var(--border-card);
+  border-right: 1px solid var(--border-card);
+  border-bottom: 1px solid var(--border-card);
+  padding: 28px 24px;
+  background: var(--bg-card);
 }
 .content-card:hover {
-  border-color: #BD6416;
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(189, 100, 22, 0.15);
+  box-shadow: 0 12px 40px rgba(195, 165, 114, 0.1);
+  border-color: var(--gold-primary);
 }
 ```
 
 ### Stat Counter
 ```css
 .stat-number {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 800;
-  font-size: var(--font-stat);
-  color: #BD6416;
+  font-family: 'Campton', sans-serif;
+  font-weight: 700;
+  color: #C3A572;
   line-height: 1;
 }
-.stat-label {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 500;
-  font-size: var(--font-caption);
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: 0.5rem;
-}
 ```
 
-### Timeline
-- **Line**: 2px solid `#BD6416`
-- **Nodes**: 12px circles, border 2px `#BD6416`, fill `#000000`, active fill `#BD6416`
-- **Content panels**: Same style as `.content-card`
-- **Animation**: Line draws progressively, nodes appear with fade-up
-
----
-
-## Image Placeholders
-
-Since no external images are used, create CSS-based placeholders that match the nespresso.com photography style:
-
-### Dark Luxury Gradient (default)
+### Vertical Timeline (Slide 2) — added 13 Mar 2026
 ```css
-.image-placeholder {
-  background: linear-gradient(135deg, #000000 0%, #2E2E2C 40%, #402108 70%, #BD6416 100%);
-  border-radius: 2px;
-  aspect-ratio: 16/9;
+.timeline-scroll-area {
+  max-height: 100%; overflow-y: auto;
+  padding: 60px 80px;
+  scrollbar-width: thin; scrollbar-color: #C3A572 transparent;
 }
+.vertical-timeline-v {
+  position: relative; padding-left: 50px; margin-top: 60px;
+}
+.vertical-timeline-v::before {
+  /* Gold vertical line through dots */
+  content: ''; position: absolute;
+  left: 17px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-primary), var(--gold-light));
+}
+.timeline-node-v { position: relative; margin-bottom: 160px; padding-left: 32px; }
+.node-dot-v { width: 14px; height: 14px; background: #C3A572; border-radius: 50%;
+  position: absolute; left: -39px; top: 6px; }
+.node-content-v.has-image {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px; width: 100%;
+}
+.node-text-block { flex: 1; min-width: 0; }
+.node-year-v { font-size: 2.5rem; font-weight: 700; color: var(--gold-primary); }
+.node-badge { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+.node-img { width: 300px; height: 180px; object-fit: contain; flex-shrink: 0; }
+.node-img-lg { width: 400px; height: 260px; }
 ```
 
-### Coffee Warmth Gradient
-```css
-.image-placeholder--warm {
-  background: linear-gradient(180deg, #000000 0%, #4B1E0D 50%, #BD6416 100%);
-}
+Badge color variants: `.badge-launch` (gold), `.badge-strategy` (teal), `.badge-sustain` (green), `.badge-identity` (charcoal) — all with 12% opacity backgrounds.
+
+### Flip Card Components — Slide 3 (`.flip-*`) and Slide 4 (`.pos-*`)
+
+Both slides share the same structural pattern and keyframe animations:
+
+```
+.card-wrapper[-pos].fragment
+  └── .card-inner[-pos]              ← flipping element (receives .flipped / .unflipped / .flipped-instant)
+        ├── .card-front[-pos]        ← front face (position: absolute, backface-visibility: hidden)
+        │     ├── .flip-icon[-pos]   ← large icon or symbol
+        │     └── .flip-cat[-pos]    ← card label (uppercase)
+        └── .card-back[-pos]         ← back face (position: absolute, rotateX(-180deg) at rest)
+              ├── .card-back-label[-pos]   ← top-left descriptor
+              └── .card-back-content[-pos] ← centered content area
+                    └── .pos-back-lines    ← line items (Slide 4 only)
 ```
 
-### Sustainability Gradient
-```css
-.image-placeholder--green {
-  background: linear-gradient(135deg, #000000 0%, #375F5E 50%, #94A96D 100%);
-}
+Slide 4 additionally has below the grid:
 ```
-
-### Capsule Color Bands (for visual identity slide)
-Create thin horizontal or vertical color bands representing Nespresso's capsule color-coding system:
-```css
-.capsule-colors {
-  display: flex;
-  gap: 4px;
-  height: 40px;
-}
-.capsule-colors span {
-  flex: 1;
-  border-radius: 2px;
-}
-/* Use colors: #6B2D5B, #2779A7, #BD6416, #94A96D, #4B1E0D, #8B0000, #2E2E2C */
+.pos-tagline         ← italic tagline (specificity: .reveal .slides section .pos-tagline)
+.pos-situations      ← flex row of usage situations
+  └── .pos-situation-item  ← SVG icon + span label
 ```
 
 ---
@@ -263,68 +254,74 @@ Create thin horizontal or vertical color bands representing Nespresso's capsule 
 ## Animations & Transitions
 
 ### Between Slides
-- **Transition**: `fade` (matching nespresso.com's restrained motion)
-- **Duration**: 600-800ms
-- **No slide/convex/zoom** — too playful for luxury brand
+- **Transition**: `none` — instant switch, no fade/slide/flash
 
 ### Fragment Animations
-- `fragment fade-up` — primary entrance animation (content rises 30px)
-- `fragment fade-in` — secondary (simple opacity)
-- Delay between fragments: 200-300ms stagger
-- Easing: `cubic-bezier(0.25, 0.46, 0.45, 0.94)` — smooth, luxury feel
+- `fragment fade-up` — primary entrance (content rises + opacity)
+- `fragment fade-in` — simple opacity
 
-### Counter Animation (Slides 1, 9, 12)
+### Counter Animation (Slides 9, 10, 12)
 - Counts from 0 to target value
-- Duration: 2000ms
-- Easing: cubic ease-out (fast start, elegant slow finish)
-- Triggers when slide becomes visible via Reveal.js `slidechanged` event
+- Duration: ~2200ms, cubic ease-out
+- Triggers on `slidechanged` event, animates once per visit (re-animation guard via `data-animated`)
 
-### Timeline Draw Animation (Slides 3, 9)
-- Gold line draws from left-to-right (horizontal) or top-to-bottom (vertical)
-- Duration: 1500ms
-- Nodes appear sequentially with 200ms stagger
-- Content panels fade-up after their node appears
+### Vertical Timeline (Slide 2)
+- Static vertical gold line (no draw animation)
+- 10 nodes revealed one-by-one via `fragment fade-up`
+- JS `fragmentshown` event triggers `scrollIntoView({ behavior: 'smooth', block: 'nearest' })` for auto-scroll
+
+### Flip Card Animation (Slides 3 & 4) — added 14–15 Mar 2026
+- `@keyframes flip-scale-up-hor`: 0% `scale(1) rotateX(0)` → 50% `scale(1.2) rotateX(-90deg)` → 100% `scale(1) rotateX(-180deg)`
+- `@keyframes flip-scale-down-hor`: reverse of above
+- Triggered by Reveal.js `fragmentshown`/`fragmenthidden` events in `js/custom.js`
+- `.flipped` → forward flip animation; `.unflipped` → reverse; `.flipped-instant` → no animation (re-entry sync)
+- `will-change: transform` on `.card-inner`/`.card-inner-pos` for GPU compositing
+- `.flip-grid` and `.flip-grid-pos` excluded from staggered entrance animation (prevents 3D context flattening)
+- Fragment visibility override required (Reveal.js hides `.fragment` by default):
+  - Slide 3: `opacity: 1; visibility: visible` (no `!important` needed)
+  - Slide 4: `opacity: 1 !important; visibility: visible !important`
+
+### Interactive Timeline (Slides 9, 10)
+- Vertical sections with hover-activated highlight (`.vt-item.active`)
 
 ### Hover Effects
 - Cards: `translateY(-4px)` + gold border + gold box-shadow
-- Buttons: color inversion or opacity transition
-- Timeline nodes: scale(1.2) + gold fill
-- All transitions: 300ms ease
+- Timeline nodes: gold fill + glow
+- All transitions: 300–400ms ease
 
-### Ambient Background (optional, subtle)
-- Very subtle particle effect — 15-20 small gold dots, low opacity (0.1-0.2), slow drift
-- OR: subtle CSS gradient animation (slow hue shift in the dark brown range)
-- Must NOT be distracting — luxury = restraint
-
----
-
-## Responsive Behavior
-
-- **Target**: 1920x1080 (presentation aspect ratio)
-- All font sizes use `clamp()` for scaling
-- Card grids: 3-col → 2-col → 1-col on smaller screens
-- Split layouts: side-by-side → stacked on narrow screens
-- Maintain generous whitespace at all breakpoints
-- Progress bar: thin gold line at bottom
+### NOT used
+- No particle backgrounds
+- No vignette or dot pattern overlays
+- No parallax effects
+- No bounce/elastic/spin animations
 
 ---
 
-## Nespresso Logo Persistent Element
+## Nespresso Logo
 
-- Position: top-left corner of every slide
-- Content: "NESPRESSO" wordmark in Josefin Sans ExtraBold, all-caps, letter-spacing 0.3em
-- Color: `#FFFFFF` on dark slides, `#000000` on light slides
-- Size: small, subtle — roughly 14-16px
-- Opacity: 0.7 (subtle, not competing with slide content)
+- **Cover only**: `assets/images/Logo_nou.svg`, centered 700px, `filter: brightness(0) invert(1)` (white on background image) — Slide 0 only
+- **Cover background**: `assets/images/Fundal.png` via `data-background-image`, `data-background-size="cover"`, `data-background-position="center"`
+- **Persistent top-left logo**: Removed (11 Mar 2026) — HTML overlay div, CSS `.nespresso-logo`, and JS logo-switching logic all deleted
+
+---
+
+## 3D Model Viewer (Slide 1)
+
+- **CDN**: `https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js` (`type="module"`)
+- **Placement**: `<script type="module">` tag at end of `<body>`, **after** `Reveal.initialize()` — NOT in `<head>` (module scripts in head may race with Reveal.js initialization)
+- **Model**: `assets/Capsula_Nespresso.glb`
+- **Size**: 360×340px, centered below timeline
+- **Attributes**: `auto-rotate`, `auto-rotate-delay="0"`, `rotation-per-second="15deg"`, `camera-controls`, `disable-zoom`, `interaction-prompt="none"`, `camera-orbit="45deg 65deg 105%"`
+- **Lighting**: `environment-image="legacy"`, `exposure="2.2"`, `tone-mapping="commerce"`, `shadow-intensity="0"`
 
 ---
 
 ## Slide Number
 
-- Position: bottom-right
-- Font: Josefin Sans Light, 12px
-- Color: `rgba(255, 255, 255, 0.4)`
-- Format: `01 / 14`
+- Position: fixed bottom-right
+- Font: Campton Light 300
+- Format: `01 / 15`
+- Color: `#6B5D4F` on light slides, `rgba(255, 255, 255, 0.5)` on dark slides
 
 ---
 
@@ -332,19 +329,36 @@ Create thin horizontal or vertical color bands representing Nespresso's capsule 
 
 - Position: bottom of viewport
 - Height: 2px
-- Color: `#BD6416` (Crema Gold)
-- Background: `rgba(255, 255, 255, 0.1)`
+- Color: `#C3A572` (Crema Gold)
+- Track: `rgba(195, 165, 114, 0.15)`
+
+---
+
+## Reveal.js (CDN)
+
+```
+CSS:   https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css
+JS:    https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js
+Notes: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js
+```
+
+Speaker notes: press S key (RevealNotes plugin).
 
 ---
 
 ## Do NOT
 
-- ❌ Use bright colors, saturated hues, or neon accents
-- ❌ Use rounded corners larger than 4px (Art Deco = geometric precision)
-- ❌ Use playful animations (bounce, elastic, spin)
-- ❌ Use emoji or informal icons
-- ❌ Use serif fonts (Nespresso's identity is geometric sans-serif)
-- ❌ Use gradients as primary background for text slides (only for image placeholders)
-- ❌ Overcrowd slides — when in doubt, use more whitespace
-- ❌ Use bullet points — use gold dashes, numbered lists, or clean lines instead
-- ❌ Mix more than 2 font weights per slide
+- Use bright colors, saturated hues, or neon accents
+- Use rounded corners larger than 4px
+- Use playful animations (bounce, elastic, spin)
+- Use emoji or informal icons
+- Use gradients as primary background for text slides
+- Overcrowd slides — when in doubt, use more whitespace
+- Use bullet points — use gold dashes, numbered lists, or clean lines
+- Mix more than 2 font weights per slide
+- Use Google Fonts or any external font CDN
+- Add particle backgrounds, vignette, or dot pattern overlays
+- Use `margin: 0 auto` on CSS grid containers that need full-width stretch in flexbox column layout
+- Add `style="position: relative;"` or any `position` override on `<section>` elements — Reveal.js requires sections to be `position: absolute`; overriding this breaks slide layout for all subsequent slides
+- Add inline `style` attributes to `<section>` elements for any layout purpose — use CSS classes instead
+- Place `<script type="module">` in `<head>` — always add module scripts at end of `<body>` after `Reveal.initialize()`

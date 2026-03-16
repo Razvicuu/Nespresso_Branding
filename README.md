@@ -14,21 +14,15 @@ An interactive cinematic presentation exploring the Nespresso brand story across
 ## Quick Start
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) v18+ installed
-- [VS Code](https://code.visualstudio.com) with [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension
+- [VS Code](https://code.visualstudio.com) with [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension (or any local server)
 
-### Install & Run
+### Run
 ```bash
-# 1. Navigate to project folder
-cd nespresso-presentation
-
-# 2. Install Reveal.js
-npm install
-
-# 3. Open in VS Code, then right-click index.html
-#    → "Open with Live Server"
-#    → opens at http://127.0.0.1:5500
+# Open in VS Code, then right-click index.html
+# → "Open with Live Server"
+# → opens at http://127.0.0.1:5500
 ```
+> No npm install needed. Reveal.js and model-viewer are loaded from CDN.
 
 ### Fullscreen Presentation
 Press `F` inside the browser for fullscreen, or use `F11`.
@@ -41,7 +35,7 @@ Press `F` inside the browser for fullscreen, or use `F11`.
 |---|-------|-------------|
 | 0 | **NESPRESSO** | Title — logo, visual intro |
 | 1 | **Statistica** | Opening hook — 96B$ global coffee market |
-| 2 | **Originile** | 1986, Eric Favre, the Roman barista insight |
+| 2 | **Originile** | 1986, Eric Favre photo (split layout) + rotating 3D Nespresso capsule |
 | 3 | **Etapele** | Key milestones timeline 1986–2014 |
 | 4 | **Identitate Vizuală** | Logo, colors, slogan, typography |
 | 5 | **Valorile Brandului** | Brand mantra, core values |
@@ -71,21 +65,14 @@ Press `F` inside the browser for fullscreen, or use `F11`.
 
 ---
 
-## Adding Your Images
+## Assets
 
-Image placeholders are marked throughout the presentation. Replace each placeholder with your image:
-
-```html
-<!-- Find this: -->
-<div class="img-placeholder" data-desc="Eric Favre / 1986 Nespresso machine"></div>
-
-<!-- Replace with: -->
-<div class="img-wrapper">
-  <img src="assets/images/your-image.jpg" alt="Description" class="img-overlay">
-</div>
-```
-
-Recommended image style: desaturated or sepia with a dark overlay (already handled by `.img-overlay` class).
+| File | Slide | Description |
+|------|-------|-------------|
+| `assets/images/eric_nespresso.gif` | 2 | Eric Favre photo — left panel of split layout |
+| `assets/Capsula_Nespresso.glb` | 2 | 3D Nespresso capsule model (glTF binary) |
+| `assets/images/Logo_Nespresso.svg` | 0 | Cover logo (centered, white) |
+| `assets/images/Favico.svg` | all | Browser favicon (adaptive dark/light) |
 
 ---
 
@@ -93,12 +80,11 @@ Recommended image style: desaturated or sepia with a dark overlay (already handl
 
 | Tool | Purpose |
 |------|---------|
-| [Reveal.js v5](https://revealjs.com) | Presentation framework |
-| [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) | Titles — serif elegant |
-| [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) | Body text — refined |
-| [Montserrat](https://fonts.google.com/specimen/Montserrat) | Labels, dates, uppercase |
+| [Reveal.js v5](https://revealjs.com) (CDN) | Presentation framework |
+| Campton (local .otf) | All typography — 9 weights, Art Deco style |
+| [model-viewer 3.5.0](https://modelviewer.dev) (CDN) | 3D capsule on Slide 2 |
 | Custom CSS | Nespresso boutique theme (cream/gold) |
-| Custom JS | Counter, timeline, particle animations |
+| Custom JS | Counter, timeline animations |
 
 ---
 

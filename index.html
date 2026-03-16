@@ -13,17 +13,10 @@
     />
 
     <!-- Custom Nespresso Theme -->
-    <link rel="stylesheet" href="css/nespresso-theme.css" />
+    <link rel="stylesheet" href="css/nespresso-theme.css?v=2" />
+
   </head>
   <body>
-    <!-- Ambient Particles -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Persistent Nespresso Logo -->
-    <div class="nespresso-logo" aria-hidden="true">
-      <img src="assets/images/Logo_Nespresso.svg" alt="Nespresso" />
-    </div>
-
     <!-- Custom Slide Number -->
     <div class="custom-slide-number" aria-hidden="true"></div>
 
@@ -32,14 +25,13 @@
         <!-- ============================================================
            SLIDE 0 — Title
            ============================================================ -->
-        <section class="cover-slide" data-transition="none">
+        <section class="cover-slide" data-background-image="assets/images/Fundal.png" data-background-size="cover" data-background-position="center" data-transition="none">
           <div class="centered-layout">
             <img
-              src="assets/images/Logo_Nespresso.svg"
+              src="assets/images/Logo_nou.svg"
               alt="Nespresso"
               class="cover-logo"
             />
-            <div class="gold-divider centered wide"></div>
           </div>
           <aside class="notes">
             Prezintă-te. Spune tema. Lasă slide-ul să respire 5 secunde înainte
@@ -48,126 +40,199 @@
         </section>
 
         <!-- ============================================================
-           SLIDE 1 — Shocking Statistic (Opening Hook)
-           ============================================================ -->
-        <section class="dark-slide" data-transition="none">
-          <div class="centered-layout">
-            <span class="label">Context Global</span>
-            <span
-              class="stat-number"
-              data-counter="96"
-              data-suffix=" miliarde $"
-              >0</span
-            >
-            <div class="gold-divider centered"></div>
-            <h2 class="text-center">
-              Valoarea pieței globale de cafea în 2023
-            </h2>
-            <p class="text-center text-secondary quote-footer">
-              Nespresso deține 30% din segmentul premium
-            </p>
-            <div class="spacer"></div>
-            <span class="caption block-center"
-              >Sursa: Statista, Nestlé Annual Report 2023</span
-            >
-          </div>
-          <aside class="notes">
-            Hook-ul audienței. „Cafeaua nu mai este un produs banal de 20 de
-            ani."
-          </aside>
-        </section>
-
-        <!-- ============================================================
            SLIDE 2 — Brand History: Origins (Card grid with hover)
            ============================================================ -->
-        <section data-transition="none">
-          <div class="split-layout">
-            <div class="split-left">
-              <div class="img-placeholder">
-                <span class="placeholder-label"
-                  >Eric Favre &middot; Prima mașină Nespresso &middot;
-                  1986</span
-                >
-              </div>
+        <section data-background-color="#FAF9F8" data-transition="none">
+          <div class="slide-3-3d">
+            <div class="slide-3-left">
+              <img
+                src="assets/images/eric_nespresso.gif"
+                alt="Eric Favre, fondatorul conceptului Nespresso"
+              />
             </div>
-            <div class="split-right">
-              <span class="label">Istoria Brandului</span>
-              <div class="big-year">1986</div>
-              <div class="gold-divider"></div>
-              <p>
-                Eric Favre, inginer Nestlé, brevetează ideea capsulei de cafea
-                după ce observă că barista din Roma agită espressorul pentru a
-                crea spumă mai bogată.
-              </p>
-              <div class="mini-timeline">
-                <span class="active-year">1986</span>
-                <span>&rarr;</span>
-                <span>1991</span>
-                <span>&rarr;</span>
-                <span>2000</span>
-                <span>&rarr;</span>
-                <span>2006</span>
-                <span>&rarr;</span>
-                <span>prezent</span>
+            <div class="slide-3-right">
+              <div class="slide-3-content">
+                <span class="label">Istoria Brandului</span>
+                <div class="big-year">1976</div>
+                <div class="gold-divider"></div>
+                <p>
+                  Eric Favre, inginer Nestlé, brevetează ideea capsulei de cafea
+                  după ce observă că barista din Roma agită espressorul pentru a
+                  crea spumă mai bogată.
+                </p>
+              </div>
+              <div class="slide-3-capsule">
+                <model-viewer
+                  src="assets/Capsula_Nespresso.glb"
+                  auto-rotate
+                  auto-rotate-delay="0"
+                  rotation-per-second="15deg"
+                  camera-controls
+                  disable-zoom
+                  interaction-prompt="none"
+                  camera-orbit="45deg 65deg 105%"
+                  environment-image="legacy"
+                  exposure="2.2"
+                  tone-mapping="commerce"
+                  shadow-intensity="0"
+                ></model-viewer>
               </div>
             </div>
           </div>
           <aside class="notes">
             Povestește cinematografic fondarea. Subliniază observația despre
-            barmanul din Roma — acolo s-a născut brandul.
+            barmanul din Roma — acolo s-a născut brandul. Capsula 3D se rotește
+            continuu — lasă-o să capteze atenția.
           </aside>
         </section>
 
         <!-- ============================================================
-           SLIDE 3 — Brand History: Key Milestones (Horizontal Timeline)
+           SLIDE 3 — Brand History: Vertical Timeline (10 nodes)
            ============================================================ -->
-        <section data-transition="none">
-          <span class="label">Etapele Brandului</span>
-          <h1>Repere Istorice</h1>
-          <div class="gold-divider"></div>
+        <section class="timeline-slide" data-background-color="#FAF9F8" data-transition="none">
+          <div class="timeline-scroll-area">
+            <span class="label">Etapele Brandului</span>
+            <h1>Repere Istorice</h1>
 
-          <div class="timeline-container">
-            <div class="timeline-track"></div>
-            <div class="timeline-nodes">
-              <div
-                class="timeline-node fragment fade-up"
-                data-fragment-index="1"
-              >
-                <div class="node-dot"></div>
-                <span class="node-year">1986</span>
-                <span class="node-text">Prima patentare a capsulei</span>
+            <div class="vertical-timeline-v">
+              <!-- 1986 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="1">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">1986</div>
+                    <span class="node-badge badge-launch">Lansare</span>
+                    <div class="node-title-v">Lansare oficială Nespresso S.A.</div>
+                    <div class="node-detail-v">De la patent la companie — Nespresso devine entitate independentă în cadrul Nestlé</div>
+                  </div>
+                  <img class="node-img" src="assets/images/1986.png" alt="Nespresso 1986">
+                </div>
               </div>
-              <div
-                class="timeline-node fragment fade-up"
-                data-fragment-index="2"
-              >
-                <div class="node-dot"></div>
-                <span class="node-year">1988</span>
-                <span class="node-text">Lansare comercială în Elveția</span>
+
+              <!-- 1989 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="2">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">1989</div>
+                    <span class="node-badge badge-strategy">Strategie</span>
+                    <div class="node-title-v">Jean-Paul Gaillard → Nespresso Club</div>
+                    <div class="node-detail-v">Poziționarea ca brand de lux pentru acasă — modelul direct-to-consumer</div>
+                  </div>
+                  <img class="node-img" src="assets/images/1989.png" alt="Nespresso Club 1989">
+                </div>
               </div>
-              <div
-                class="timeline-node fragment fade-up"
-                data-fragment-index="3"
-              >
-                <div class="node-dot"></div>
-                <span class="node-year">1991</span>
-                <span class="node-text">Club Nespresso fondat</span>
+
+              <!-- 1999 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="3">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">1999</div>
+                    <span class="node-badge badge-launch">Extensie</span>
+                    <div class="node-title-v">Nespresso Professional</div>
+                    <div class="node-detail-v">Sistem B2B dedicat pentru firme, hoteluri și restaurante</div>
+                  </div>
+                  <img class="node-img" src="assets/images/1999.png" alt="Nespresso Professional">
+                </div>
               </div>
-              <div
-                class="timeline-node fragment fade-up"
-                data-fragment-index="4"
-              >
-                <div class="node-dot"></div>
-                <span class="node-year">2006</span>
-                <span class="node-text">George Clooney devine ambasador</span>
+
+              <!-- 2000 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="4">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2000</div>
+                    <span class="node-badge badge-identity">Identitate</span>
+                    <div class="node-title-v">O nouă identitate vizuală</div>
+                    <div class="node-detail-v">Repozitionare logo + Primul Boutique la Paris</div>
+                  </div>
+                  <img class="node-img" src="assets/images/2000.jpg" alt="Boutique Paris 2000">
+                </div>
               </div>
-              <div
-                class="timeline-node fragment fade-up"
-                data-fragment-index="5"
-              >
-                <div class="node-dot"></div>
-                <span class="node-year">2014</span>
-                <span class="node-text">Programul AAA Sustainability</span>
+
+              <!-- 2003 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="5">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2003</div>
+                    <span class="node-badge badge-sustain">Sustenabilitate</span>
+                    <div class="node-title-v">Programul AAA Sustainable Quality</div>
+                    <div class="node-detail-v">Parteneriat Rainforest Alliance — formalizare sustenabilitate în aprovizionare</div>
+                  </div>
+                  <img class="node-img node-img-lg" src="assets/images/2003.png" alt="AAA Program 2003">
+                </div>
+              </div>
+
+              <!-- 2006 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="6">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2006</div>
+                    <span class="node-badge badge-strategy">Campanie</span>
+                    <div class="node-title-v">George Clooney — „What Else?"</div>
+                    <div class="node-detail-v">Brand Ambassador și imagine iconică — parteneriat care durează 19 ani</div>
+                  </div>
+                  <img class="node-img node-img-lg" src="assets/images/2006.jpg" alt="George Clooney 2006">
+                </div>
+              </div>
+
+              <!-- 2009 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="7">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2009</div>
+                    <span class="node-badge badge-sustain">Sustenabilitate</span>
+                    <div class="node-title-v">Ecolaboration</div>
+                    <div class="node-detail-v">Lansare program dedicat de sustenabilitate și responsabilitate</div>
+                  </div>
+                  <img class="node-img" src="assets/images/2009.png" alt="Ecolaboration 2009">
+                </div>
+              </div>
+
+              <!-- 2014 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="8">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2014</div>
+                    <span class="node-badge badge-launch">Inovație</span>
+                    <div class="node-title-v">VertuoLine</div>
+                    <div class="node-detail-v">Lansare sistem nou în US/Canada — extindere piață nord-americană</div>
+                  </div>
+                  <img class="node-img" src="assets/images/2014.png" alt="VertuoLine 2014">
+                </div>
+              </div>
+
+              <!-- 2022 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="9">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2022</div>
+                    <span class="node-badge badge-sustain">Certificare</span>
+                    <div class="node-title-v">B Corporation Certified</div>
+                    <div class="node-detail-v">Ancoră de poziționare premium + responsabil</div>
+                  </div>
+                  <img src="assets/images/2022.png" alt="B Corp 2022" class="node-img">
+                </div>
+              </div>
+
+              <!-- 2023 -->
+              <div class="timeline-node-v fragment fade-up" data-fragment-index="10">
+                <div class="node-dot-v"></div>
+                <div class="node-content-v has-image">
+                  <div class="node-text-block">
+                    <div class="node-year-v">2023</div>
+                    <span class="node-badge badge-sustain">Inovație</span>
+                    <div class="node-title-v">Capsule pe bază de hârtie</div>
+                    <div class="node-detail-v">Lansare în Franța și Elveția — pas major spre sustenabilitate</div>
+                  </div>
+                  <img class="node-img" src="assets/images/2023.png" alt="Paper capsule 2023">
+                </div>
               </div>
             </div>
           </div>
@@ -180,60 +245,93 @@
         <!-- ============================================================
            SLIDE 4 — Visual Identity (2x2 Grid)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Identitate Vizuală</span>
           <h1>Limbajul Vizual</h1>
-          <div class="gold-divider"></div>
+          <div class="flip-divider"></div>
 
-          <div class="grid-2x2">
-            <div class="content-card">
-              <span class="card-icon">&#9670;</span>
-              <div class="card-title">Logotip</div>
-              <p class="card-body">
-                Litera „N" în italic — eleganță, mișcare, premium. Recunoaștere
-                instantanee la nivel global.
-              </p>
-            </div>
-            <div class="content-card">
-              <span class="card-icon">&#9632;</span>
-              <div class="card-title">Culori</div>
-              <p class="card-body">
-                Negru, auriu, crem și roșu burgundy. Fiecare nuanță comunică
-                rafinament.
-              </p>
-              <div class="swatch-row">
-                <div>
-                  <div class="swatch" style="background: #1a1209"></div>
-                  <div class="swatch-label">Negru</div>
+          <div class="flip-grid">
+            <!-- Card 1 — Logo -->
+            <div class="card-wrapper fragment">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="flip-icon" style="font-size:70px">&#9670;</span>
+                  <span class="flip-cat">Logo</span>
                 </div>
-                <div>
-                  <div class="swatch" style="background: #c5a258"></div>
-                  <div class="swatch-label">Auriu</div>
-                </div>
-                <div>
-                  <div class="swatch" style="background: #f5f0e8"></div>
-                  <div class="swatch-label">Crem</div>
-                </div>
-                <div>
-                  <div class="swatch" style="background: #8b2332"></div>
-                  <div class="swatch-label">Roșu</div>
+                <div class="card-back">
+                  <span class="card-back-label">Tranziție logo</span>
+                  <div class="card-back-content" style="gap:30px;">
+                    <img src="assets/images/Logo_vechi_maro.svg" style="height:80px;width:auto;">
+                    <img src="assets/images/Logo_nou_maro.svg" style="height:80px;width:auto;">
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="content-card">
-              <span class="card-icon">&#10077;</span>
-              <div class="card-title">Slogan</div>
-              <p class="card-body slogan-display">What Else?</p>
+
+            <!-- Card 2 — Culori -->
+            <div class="card-wrapper fragment">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="flip-icon"><span style="display:inline-block;width:56px;height:56px;background:#C3A572;border-radius:2px;"></span></span>
+                  <span class="flip-cat">Culori</span>
+                </div>
+                <div class="card-back">
+                  <span class="card-back-label">Paleta culorilor</span>
+                  <div class="card-back-content" style="gap:24px;">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                      <div style="width:80px;height:80px;border-radius:50%;background:#d9c7ba;"></div>
+                      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#6B5D4F;">Light Beige</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                      <div style="width:80px;height:80px;border-radius:50%;background:#C3A572;"></div>
+                      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#6B5D4F;">Gold</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                      <div style="width:80px;height:80px;border-radius:50%;background:#4e3227;"></div>
+                      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#6B5D4F;">Dark Brown</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content-card">
-              <span class="card-icon">Aa</span>
-              <div class="card-title">Tipografie</div>
-              <p class="card-body">
-                Fonturi serif elegante, spațiere generoasă, majuscule subțiri —
-                stilul Didot.
-              </p>
+
+            <!-- Card 3 — Slogan -->
+            <div class="card-wrapper fragment">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="flip-icon">&#10078;&#10078;</span>
+                  <span class="flip-cat">Slogan</span>
+                </div>
+                <div class="card-back">
+                  <span class="card-back-label">Slogan</span>
+                  <div class="card-back-content">
+                    <span style="font-size:38px;font-weight:400;color:#2E2E2C;">What else?</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 — Font -->
+            <div class="card-wrapper fragment">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="flip-icon" style="font-size:66px;font-weight:300;">Aa</span>
+                  <span class="flip-cat">Font</span>
+                </div>
+                <div class="card-back">
+                  <span class="card-back-label">Fontul brandului</span>
+                  <div class="card-back-content">
+                    <div style="text-align:center;">
+                      <div style="font-size:30px;font-weight:600;color:#2E2E2C;">Nespresso Lucas</div>
+                      <div style="font-size:18px;color:#6B5D4F;margin-top:6px;">Jean François Porchez</div>
+                      <div style="font-size:18px;color:#6B5D4F;">ZeCraft</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
           <aside class="notes">
             Identitatea vizuală este prima impresie. Fiecare element Nespresso
             comunică lux și exclusivitate.
@@ -241,9 +339,214 @@
         </section>
 
         <!-- ============================================================
-           SLIDE 5 — Brand Values / Brand Mantra
+             SLIDE 5 — Axe de Poziționare (NEW)
+             ============================================================ -->
+        <section data-background-color="#FAF9F8" data-transition="none">
+          <span class="label">Strategie de Brand</span>
+          <h1>Axe de Poziționare</h1>
+          <div class="flip-divider"></div>
+          <p class="pos-tagline">Experiența barista perfectă, la tine acasă.</p>
+
+          <div class="flip-grid-pos">
+            <!-- Card 1 — Exclusivitate -->
+            <div class="card-wrapper-pos fragment">
+              <div class="card-inner-pos">
+                <div class="card-front-pos">
+                  <span class="flip-icon-pos">&#9670;</span>
+                  <span class="flip-cat-pos">Exclusivitate</span>
+                </div>
+                <div class="card-back-pos">
+                  <span class="card-back-label-pos">Beneficii Emoționale</span>
+                  <div class="card-back-content-pos">
+                    <div class="pos-back-lines">
+                      <div>Sentiment de răsfăț</div>
+                      <div>Statut social</div>
+                      <div>Comunitate de elită</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 — Calitate -->
+            <div class="card-wrapper-pos fragment">
+              <div class="card-inner-pos">
+                <div class="card-front-pos">
+                  <span class="flip-icon-pos">&#9733;</span>
+                  <span class="flip-cat-pos">Calitate</span>
+                </div>
+                <div class="card-back-pos">
+                  <span class="card-back-label-pos">Beneficii Funcționale</span>
+                  <div class="card-back-content-pos">
+                    <div class="pos-back-lines">
+                      <div>Calitate constantă</div>
+                      <div>Consistența gustului</div>
+                      <div>Varietate de arome</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 — Inovație -->
+            <div class="card-wrapper-pos fragment">
+              <div class="card-inner-pos">
+                <div class="card-front-pos">
+                  <span class="flip-icon-pos">&#9881;</span>
+                  <span class="flip-cat-pos">Inovație</span>
+                </div>
+                <div class="card-back-pos">
+                  <span class="card-back-label-pos">Beneficii Funcționale</span>
+                  <div class="card-back-content-pos">
+                    <div class="pos-back-lines">
+                      <div>Confort maxim</div>
+                      <div>Tehnologie brevetată</div>
+                      <div>Experiență simplificată</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 — Estetică -->
+            <div class="card-wrapper-pos fragment">
+              <div class="card-inner-pos">
+                <div class="card-front-pos">
+                  <span class="flip-icon-pos">&#9680;</span>
+                  <span class="flip-cat-pos">Estetică</span>
+                </div>
+                <div class="card-back-pos">
+                  <span class="card-back-label-pos">Beneficii Emoționale</span>
+                  <div class="card-back-content-pos">
+                    <div class="pos-back-lines">
+                      <div>Design premium</div>
+                      <div>Ritual personal zilnic</div>
+                      <div>Rafinament vizual</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Situații de utilizare -->
+          <div class="pos-situations">
+            <div class="pos-situation-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C3A572" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="4.9" y1="4.9" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="19.1" y2="19.1"/>
+                <line x1="19.1" y1="4.9" x2="16.9" y2="7.1"/><line x1="7.1" y1="16.9" x2="4.9" y2="19.1"/>
+              </svg>
+              <span>Ritualul de dimineață</span>
+            </div>
+            <div class="pos-situation-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C3A572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="8" width="20" height="13" rx="2"/>
+                <path d="M16 8V6a4 4 0 0 0-8 0v2"/>
+                <line x1="12" y1="13" x2="12" y2="15"/>
+              </svg>
+              <span>Întâlniri de afaceri</span>
+            </div>
+            <div class="pos-situation-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C3A572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12L12 3l9 9"/>
+                <path d="M9 21V12h6v9"/>
+              </svg>
+              <span>Entertaining acasă</span>
+            </div>
+            <div class="pos-situation-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C3A572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2"/>
+                <path d="M12 11V7"/>
+                <path d="M12 7c0-2 1.5-4 4-4s2 3 0 4H12z"/>
+                <path d="M12 7c0-2-1.5-4-4-4S6 6 8 7h4z"/>
+                <line x1="3" y1="15" x2="21" y2="15"/>
+              </svg>
+              <span>Cadouri</span>
+            </div>
+          </div>
+
+          <aside class="notes">
+            Nespresso se poziționează pe patru axe strategice: exclusivitate, calitate supremă,
+            inovație tehnologică și estetică premium. Beneficiile sunt atât funcționale — confort,
+            calitate constantă, varietate — cât și emoționale — sentiment de răsfăț, statut social,
+            apartenența la o comunitate de elită. Situațiile tipice de utilizare includ ritualul de
+            dimineață, întâlnirile de afaceri, entertaining-ul acasă și cadourile.
+          </aside>
+        </section>
+
+        <!-- ============================================================
+           SLIDE 5 — Portofoliul de Branduri (Split layout)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
+          <div class="portfolio-split">
+            <div class="portfolio-left">
+              <span class="label">Compania Mamă</span>
+              <div class="portfolio-section-title">Ecosistemul Nestlé</div>
+              <div class="flip-divider"></div>
+
+              <div class="portfolio-card portfolio-card-highlight fragment fade-up">
+                <span class="portfolio-card-name">Nespresso</span>
+                <span class="portfolio-tag portfolio-tag-gold">Lux accesibil</span>
+              </div>
+              <div class="portfolio-card fragment fade-up">
+                <span class="portfolio-card-name">Nescafé</span>
+                <span class="portfolio-tag">Cafea de masă</span>
+              </div>
+              <div class="portfolio-card fragment fade-up">
+                <span class="portfolio-card-name">Dolce Gusto</span>
+                <span class="portfolio-tag">Sistem accesibil</span>
+              </div>
+              <div class="portfolio-card fragment fade-up">
+                <span class="portfolio-card-name">Starbucks <span style="font-weight:400;font-size:0.85rem;color:#6B5D4F">(licensed)</span></span>
+                <span class="portfolio-tag">Premium retail</span>
+              </div>
+            </div>
+
+            <div class="portfolio-separator"></div>
+
+            <div class="portfolio-right">
+              <span class="portfolio-section-label">Linii de Produs</span>
+              <div class="portfolio-section-title">Portofoliul Propriu</div>
+              <div class="flip-divider"></div>
+
+              <div class="portfolio-product-card fragment fade-up">
+                <div class="portfolio-product-header">
+                  <span class="portfolio-product-title">Original Line</span>
+                  <span class="portfolio-badge">D2C</span>
+                </div>
+                <p class="portfolio-product-desc">Clasicul espresso european — ritualul premium la tine acasă</p>
+              </div>
+              <div class="portfolio-product-card fragment fade-up">
+                <div class="portfolio-product-header">
+                  <span class="portfolio-product-title">Vertuo Line</span>
+                  <span class="portfolio-badge">D2C</span>
+                </div>
+                <p class="portfolio-product-desc">Sistem nou pentru băuturi lungi — varietate și comoditate</p>
+              </div>
+              <div class="portfolio-product-card fragment fade-up">
+                <div class="portfolio-product-header">
+                  <span class="portfolio-product-title">Professional</span>
+                  <span class="portfolio-badge portfolio-badge-teal">B2B</span>
+                </div>
+                <p class="portfolio-product-desc">Soluții pentru HoReCa, birouri și spații premium de servicii</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Nespresso face parte din portofoliul Nestlé alături de Nescafé, Dolce Gusto și Starbucks licensed.
+            Fiecare brand ocupă un segment diferit — de la cafea instant de masă la premium retail.
+            Portofoliul propriu Nespresso cuprinde trei linii: Original pentru espresso clasic, Vertuo pentru
+            băuturi lungi și diverse, și Professional pentru segmentul B2B — birouri, HoReCa și evenimente corporate.
+          </aside>
+        </section>
+
+        <!-- ============================================================
+           SLIDE 6 — Brand Values / Brand Mantra
+           ============================================================ -->
+        <section data-background-color="#FAF9F8" data-transition="none">
           <div class="centered-layout">
             <span class="label">Valorile Brandului &middot; Brand Mantra</span>
             <div class="spacer-sm"></div>
@@ -268,7 +571,7 @@
         <!-- ============================================================
            SLIDE 6 — Positioning Axes (3 Columns)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Axele de Poziționare</span>
           <h1>Strategia de Poziționare</h1>
           <div class="gold-divider"></div>
@@ -313,7 +616,7 @@
         <!-- ============================================================
            SLIDE 7 — Brand Portfolio (Nestlé)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Portofoliul Nestlé</span>
           <h1>Arhitectura de Brand</h1>
           <div class="gold-divider"></div>
@@ -350,7 +653,7 @@
         <!-- ============================================================
            SLIDE 8 — Target Segments (3 Persona Cards)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Segmente Țintă</span>
           <h1>Profilul Consumatorului</h1>
           <div class="gold-divider"></div>
@@ -392,7 +695,7 @@
         <!-- ============================================================
            SLIDE 9 — Global Markets (Stats + Vertical Interactive Timeline)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Piețe Globale</span>
           <h1>Prezența Mondială</h1>
           <div class="gold-divider"></div>
@@ -471,7 +774,7 @@
         <!-- ============================================================
            SLIDE 10 — Marketing: Campaigns & Celebrity
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <div class="centered-layout">
             <span class="label block-center">Marketing &middot; Campanii</span>
             <div class="spacer-sm"></div>
@@ -510,7 +813,7 @@
         <!-- ============================================================
            SLIDE 11 — Marketing: Digital, CSR & Distribution (2x2 Grid)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Ecosistemul de Marketing</span>
           <h1>Strategia Integrată</h1>
           <div class="gold-divider"></div>
@@ -558,7 +861,7 @@
         <!-- ============================================================
            SLIDE 12 — Rebranding & Repositioning (with animated counters)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Repozitionare &amp; Revitalizare</span>
           <h1>Evoluția Brandului</h1>
           <div class="gold-divider"></div>
@@ -632,7 +935,7 @@
         <!-- ============================================================
            SLIDE 13 — Conclusions (Fragments fade-up)
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <span class="label">Concluzii &middot; Lecții de Branding</span>
           <h1>Ce Învățăm</h1>
           <div class="gold-divider"></div>
@@ -697,7 +1000,7 @@
         <!-- ============================================================
            SLIDE 14 — Outro / Q&A
            ============================================================ -->
-        <section data-transition="none">
+        <section data-background-color="#FAF9F8" data-transition="none">
           <div class="centered-layout">
             <span class="label">Mulțumesc &middot; Întrebări</span>
             <div class="gold-divider centered wide"></div>
@@ -747,7 +1050,6 @@
         progress: true,
         slideNumber: false,
         hash: true,
-        history: true,
 
         // Transitions
         transition: "none",
@@ -776,5 +1078,8 @@
         plugins: [RevealNotes],
       });
     </script>
+
+    <!-- model-viewer for 3D capsule (loaded after Reveal.js initializes) -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   </body>
 </html>
