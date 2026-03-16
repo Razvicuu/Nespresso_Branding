@@ -2,16 +2,14 @@
 
 ## Project Overview
 
-Reveal.js academic presentation (16 slides, 0–15) analyzing Nespresso's branding strategy. Minimalist luxury with Art Deco geometric precision.
+Reveal.js academic presentation (14 slides, 0–13) analyzing Nespresso's branding strategy. Minimalist luxury with Art Deco geometric precision.
 
 **Target audience**: University Branding course
 **Language**: All slide content in **Romanian** with correct diacritics (ă, â, î, ș, ț)
 **Tone**: Academic but visually premium — data-rich content in a luxury wrapper
 **Deploy**: Vercel — auto-deploy from GitHub
 
-**Planned additions**: 1 more slide to be inserted after Slide 5 (Portofoliul de Branduri):
-- Slide 6 (planned): "Utilizatori & Piețe" — cards grid, user segments + global markets
-- After this addition: 17 slides total (0–16)
+**All slides implemented.** Current total: 14 slides (0–13).
 
 ---
 
@@ -26,7 +24,7 @@ Reveal.js academic presentation (16 slides, 0–15) analyzing Nespresso's brandi
 - **Logo**: SVG at `assets/images/Logo_nou.svg` — centered 700px on Slide 0 only (white filter). **Persistent top-left logo removed.**
 - **Favicon**: `assets/images/Favico.svg` — adaptive dark/light OS theme
 - **model-viewer 3.5.0** — Google CDN: `https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js` (Slide 1 — 3D capsule)
-- **Images**: `assets/images/Fundal.png` (Cover background, Slide 0). `assets/images/eric_nespresso.gif` (Eric Favre photo, Slide 1). `assets/Capsula_Nespresso.glb` (3D capsule model, Slide 1). Timeline images in `assets/images/`: `1986.png`, `1989.png`, `1999.png`, `2000.jpg`, `2003.png`, `2006.jpg`, `2009.png`, `2014.png`, `2022.png`, `2023.png` (Slide 2). `Icon_alb.svg`, `Icon_maro.svg`.
+- **Images**: `assets/images/Fundal.png` (Cover background, Slide 0). `assets/images/eric_nespresso.gif` (Eric Favre photo, Slide 1). `assets/Capsula_Nespresso.glb` (3D capsule model, Slide 1). Timeline images in `assets/images/`: `1986.png`, `1989.png`, `1999.png`, `2000.jpg`, `2003.png`, `2006.jpg`, `2009.png`, `2014.png`, `2022.png`, `2023.png` (Slide 2). `Logo_vechi_maro.svg`, `Logo_nou_maro.svg` (Slide 3 flip card). `Icon_maro.svg`.
 - **Target resolution**: 1920×1080
 
 ---
@@ -39,7 +37,7 @@ Nesspreso/
 ├── design-spec.md             ← Full design specification
 ├── index.html                 ← Main presentation
 ├── css/
-│   └── nespresso-theme.css    ← Custom theme (~1,639 lines)
+│   └── nespresso-theme.css    ← Custom theme (~2,528 lines)
 ├── js/
 │   └── custom.js              ← Animations & interactivity (~168 lines)
 └── assets/
@@ -49,9 +47,10 @@ Nesspreso/
         ├── Logo_nou.svg
         ├── Fundal.png             ← Cover background image (Slide 0)
         ├── Favico.svg
-        ├── Icon_alb.svg
         ├── Icon_maro.svg
-        ├── eric_nespresso.gif ← Eric Favre photo (Slide 1)
+        ├── Logo_vechi_maro.svg  ← Old logo (Slide 3 flip card)
+        ├── Logo_nou_maro.svg    ← New logo (Slide 3 flip card)
+        ├── eric_nespresso.gif   ← Eric Favre photo (Slide 1)
         ├── 1986.png           ← Timeline images (Slide 2)
         ├── 1989.png
         ├── 1999.png
@@ -72,13 +71,13 @@ Nesspreso/
 | Slide       | Background | Type |
 |-------------|-----------|------|
 | Slide 0     | `assets/images/Fundal.png` | Full-bleed background image (`background-size: cover`) |
-| Slides 1–15 | `#FAF9F8` | Light cream (default) |
+| Slides 1–13 | `#FAF9F8` | Light cream (default) |
 
 ### Colors
 | Name               | Hex       | Usage                                    |
 |--------------------|-----------|------------------------------------------|
 | Warm Brown         | `#362217` | Viewport bg                              |
-| Light Cream        | `#FAF9F8` | Default slide background (slides 1–15)   |
+| Light Cream        | `#FAF9F8` | Default slide background (slides 1–13)   |
 | Dark Charcoal      | `#2E2E2C` | Text on light slides                     |
 | Warm Gray-Brown    | `#6B5D4F` | Subtext, captions on light slides        |
 | Pure White         | `#FFFFFF` | Text on dark slides, card backgrounds    |
@@ -187,91 +186,125 @@ Nesspreso/
 - **Background**: `#FAF9F8`
 - **Resolved issue**: `.flip-grid-pos` uses `margin: 0` (NOT `margin: 0 auto`). Auto horizontal margins on a flex child override `align-self: stretch` and collapse the grid to near-zero width. This is fixed and debug CSS has been removed.
 
-### Slide 5 — Portofoliul de Branduri — inserted 16 Mar 2026
-- **Label**: "Compania Mamă" (left) | "Linii de Produs" (right)
-- **Heading**: "Ecosistemul Nestlé" (left) | "Portofoliul Propriu" (right)
-- **Layout**: Split 45/55 with vertical separator, flexbox
-- **CSS namespace**: `.portfolio-*` prefix (`.portfolio-split`, `.portfolio-left`, `.portfolio-right`, `.portfolio-card`, `.portfolio-product-card`, etc.)
-- **Left side — Nestlé ecosystem**: 4 horizontal cards (`.portfolio-card.fragment.fade-up`), each with brand name + positioning tag:
-  - NESPRESSO — "Lux accesibil" (gold tag `.portfolio-tag-gold`, gold left border `.portfolio-card-highlight`)
+### Slide 5 — Ecosistemul Nestlé — inserted 16 Mar 2026
+- **Label**: "Compania Mamă" | **Heading**: "Ecosistemul Nestlé"
+- **Layout**: 2×2 card grid (`.nestle-grid`), fragment fade-up
+- **CSS namespace**: `.nestle-*` (`.nestle-grid`, `.nestle-card`, `.nestle-card-header`, `.nestle-brand-name`, `.nestle-tag`, `.nestle-tag-gold`, `.nestle-card-desc`)
+- **All cards have gold border** (`border: 1px solid #C3A572; border-left: 4px solid #C3A572`) — `.nestle-card-highlight` removed
+- **Cards** (4, each `.nestle-card.fragment.fade-up`):
+  - NESPRESSO — "Lux accesibil" (gold tag)
   - NESCAFÉ — "Cafea de masă" (neutral tag)
   - DOLCE GUSTO — "Sistem accesibil" (neutral tag)
   - STARBUCKS (licensed) — "Premium retail" (neutral tag)
-- **Separator**: `.portfolio-separator` — 1px solid `#E6E0D8`, height 80%, centered
-- **Right side — Nespresso portfolio**: 3 vertical product cards (`.portfolio-product-card.fragment.fade-up`):
-  - Original Line + "D2C" badge (gold) + description
-  - Vertuo Line + "D2C" badge (gold) + description
-  - Professional + "B2B" badge (teal `#375F5E`) + description
-- **Hover on all cards**: `border-color: #C3A572`, `translateY(-2px)`, `box-shadow: 0 4px 12px rgba(0,0,0,0.06)`
+- **Hover**: `border-color: #C3A572`, `translateY(-2px)`, `box-shadow: 0 4px 12px rgba(0,0,0,0.06)`
+- **Section override**: `.reveal .slides section:has(.nestle-grid) { justify-content: flex-start; }`
 - **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 6 — Viziunea Brandului
-- **Layout**: Hero (centered quote)
-- **Quote**: "Cultivăm cafeaua ca artă pentru a scoate ce e mai bun din fiecare dintre noi."
-- **CEO quote**: "Vrem să fim Louis Vuitton-ul cafelei" — Gerhard Berssenbrügge
+### Slide 6 — Portofoliul Nespresso — inserted 16 Mar 2026
+- **Label**: "Linii de Produs" | **Heading**: "Portofoliul Nespresso"
+- **Layout**: 3-column grid (`.nespresso-lines-grid`), fragment fade-up
+- **CSS namespace**: `.nline-*` (`.nline-card`, `.nline-accent`, `.nline-content`, `.nline-header`, `.nline-title`, `.nline-badge`, `.nline-badge-gold`, `.nline-badge-teal`, `.nline-desc`, `.nline-tags`)
+- **Cards** (3, each `.nline-card.fragment.fade-up`):
+  - Original Line — gold accent bar, "D2C" badge, tags: Espresso, Lungo, Ristretto
+  - Vertuo Line — gold accent bar, "D2C" badge, tags: Espresso, Gran Lungo, Mug, Alto
+  - Professional — teal accent bar (`#375F5E`), "B2B" badge, tags: Birouri, HoReCa, Evenimente
+- **Accent bar**: `.nline-accent` — 4px tall colored strip at top of each card
+- **Tag chips**: `.nline-tags span` — small uppercase labels (0.7rem, bg `#F5F0EB`)
+- **Hover**: same as Slide 5
+- **Section override**: `.reveal .slides section:has(.nespresso-lines-grid) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 7 — Strategia de Poziționare
-- **Layout**: 3 columns
-- **Column 1 — "MASS-MARKET"**: Dolce Gusto / Keurig. $0.30–$0.80/capsulă.
-- **Column 2 — "LUXUL ACCESIBIL" (NESPRESSO)**: $0.70–$1.60/capsulă. Gold border highlight.
-- **Column 3 — "PREMIUM"**: Lavazza / Illy. ~$0.31/capsulă.
+### Slide 7 — Categorii de Utilizatori — inserted 16 Mar 2026
+- **Label**: "Segmentare" | **Heading**: "Categorii de Utilizatori"
+- **Layout**: 3-column grid (`.users-grid`), fragment fade-up
+- **CSS namespace**: `.user-*` (`.user-card`, `.user-card-accent`, `.user-card-content`, `.user-card-icon`, `.user-card-title`, `.user-card-desc`, `.user-card-tag`)
+- **Cards** (3, each `.user-card.fragment.fade-up`):
+  - Original Line — gold accent, coffee cup SVG icon, demographic tag "25–55 ani · Urban · Venit peste medie"
+  - Vertuo Line — gold accent, coffee cup SVG icon, tag "25–55 ani · Urban · Orientați spre comoditate"
+  - Professional — teal accent (`#375F5E`), briefcase SVG icon, tag "B2B · Companii · Foodservice"
+- **Card structure**: accent bar (4px) + content (icon, title, description, gold tag at bottom with border-top separator)
+- **Section override**: `.reveal .slides section:has(.users-grid) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 8 — Arhitectura de Brand (Portofoliul Nestlé)
-- **Layout**: Split 50/50 — text left, brand pyramid right
-- **Label**: "Portofoliul Nestlé" | **Heading**: "Arhitectura de Brand"
-- **Left**: Context paragraph (Nespresso ca bijuterie Nestlé, strategie pe segmente de preț și stil de viață)
-- **Right**: `.pyramid` — 4 levels: Ultra-Premium (Vertuo/Atelier), Premium (Original), Mid-Range (Dolce Gusto), Mass (Nescafé Classic)
+### Slide 8 — Piețe Globale — inserted 16 Mar 2026
+- **Label**: "Prezență Internațională" | **Heading**: "Piețe Globale"
+- **Layout**: Flex row — dark stats column (240px) + 3 stacked region cards (`.markets-layout`)
+- **CSS namespace**: `.markets-*` (`.markets-layout`, `.markets-stats`, `.markets-stat-item`, `.markets-stat-number`, `.markets-stat-label`, `.markets-stat-hq`, `.markets-stat-city`, `.markets-regions`, `.market-card`, `.market-badge`, `.market-badge-gold`, `.market-badge-teal`, `.market-title`, `.market-desc`)
+- **Stats column** (dark bg `#2E2E2C`, no fragments): "+80 țări", "+800 boutiques", "Lausanne — Sediu central · Elveția"
+- **Region cards** (3, each `.market-card.fragment.fade-up`):
+  - Europa — gold badge "Piața istorică"
+  - America de Nord — gold badge "Motor de creștere"
+  - Piețe Emergente — teal badge "Expansiune"
+- **Section override**: `.reveal .slides section:has(.markets-layout) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 9 — Profilul Consumatorului (Segmente Țintă)
-- **Layout**: 3 persona cards
-- **Card 1 — "Profesionistul Urban"**: 30–45 ani, venit peste medie, cafea ca ritual de status
-- **Card 2 — "Aspiraționalul"**: 25–35 ani, prima achiziție premium, poarta în universul luxury
-- **Card 3 — "B2B / Office"**: Companii, hoteluri 5 stele, restaurante premium
-- **Footer quote**: "Nespresso nu targetează toți consumatorii de cafea — ci pe cei care vor să fie mai mult decât consumatori."
+### Slide 9 — Valorile Brandului — inserted 16 Mar 2026
+- **Label**: "Brand Mantra" | **Heading**: "Valorile Brandului"
+- **Layout**: Side-by-side quote cards (`.brand-quotes-row`) + 4-column value cards grid (`.values-grid`)
+- **CSS namespace**: `.brand-quotes-row`, `.brand-quote-card`, `.brand-quote-card-text`, `.brand-quote-card-source`, `.values-grid`, `.value-card`, `.value-card-green`, `.value-icon`, `.value-title`, `.value-desc`
+- **Quote cards** (2, side-by-side in `.brand-quotes-row`, each `.brand-quote-card.fragment.fade-up`):
+  - "Cultivating coffee as an art to grow the best in each of us." — Brand Purpose
+  - "We want to be the Louis Vuitton of coffee." — Gerhard Berssenbrügge, CEO
+- **Value cards** (4, each `.value-card.fragment.fade-up`, `border-top: 3px solid #C3A572`):
+  - Inovație — checkmark SVG, gold stroke
+  - Excelență — star SVG, gold stroke
+  - Sustenabilitate — leaf SVG, green stroke (`#94A96D`), `.value-card-green` (border-top-color: `#94A96D`)
+  - Integritate — heart SVG, gold stroke
+- **Section override**: `.reveal .slides section:has(.values-grid) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 10 — Prezența Mondială (Piețe Globale)
-- **Layout**: Split 50/50 — animated stats left, vertical interactive timeline right
-- **Label**: "Piețe Globale" | **Heading**: "Prezența Mondială"
-- **Animated counters**: "80+" (țări prezente), "800+" (boutique-uri în lume), "14 Mld €" (vânzări anuale 2023)
-- **Right**: `.vertical-timeline` with 3 `.vt-item` regions: Europa (piața principală), America (expansiune Vertuo), Asia & ME (piețe emergente)
+### Slide 10 — Campanii și Ambasadori — inserted 16 Mar 2026
+- **Label**: "Marketing" | **Heading**: "Campanii și Ambasadori"
+- **Layout**: Flex row — dark stats column (240px) + 6 stacked campaign cards (`.campaigns-layout`)
+- **CSS namespace**: `.campaigns-*` (`.campaigns-layout`, `.campaigns-stats`, `.campaigns-stat-item`, `.campaigns-stat-number`, `.campaigns-stat-label`, `.campaigns-stat-quote`, `.campaigns-stat-quote-text`), `.campaign-*` (`.campaign-card`, `.campaign-year`, `.campaign-content`, `.campaign-title`, `.campaign-desc`)
+- **Stats column** (dark bg `#2E2E2C`, no fragments): "19 ani de parteneriat", "+40% creștere venituri", "~$40M contract estimat", "What Else?" quote
+- **Campaign cards** (6, each `.campaign-card.fragment.fade-up`):
+  - 2006 — Lansarea "What Else?" (Gondry)
+  - 2009 — John Malkovich "Heaven" (Rodriguez)
+  - 2013 — Matt Damon & Jean Dujardin
+  - 2018 — Penélope Cruz
+  - 2023 — Julia Garner & David Beckham
+  - 2025 — Eva Longoria & Kim Go Eun
+- **Section override**: `.reveal .slides section:has(.campaigns-layout) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 11 — Marketing: Campanii & Celebrity
-- **Layout**: Centered hero — "What Else?" quote + vertical interactive timeline with campaign entries
-- **Label**: "Marketing · Campanii"
-- **Quote**: "What Else?" (large display)
-- **Entries**: 2006 (What Else?, Gondry), 2009 (Malkovich, Rodriguez), 2013 (Damon, Dujardin), 2018 (Penélope Cruz), 2023 (Garner, Beckham), 2025 (Longoria)
-- **Animated counters**: "40%" (creștere venituri 2006–2010), "~$40M" (câștiguri Clooney), "19" (ani parteneriat)
+### Slide 11 — Distribuție & Canale — inserted 16 Mar 2026
+- **Label**: "Strategie Comercială" | **Heading**: "Distribuție & Canale"
+- **Layout**: 2×2 card grid (`.distrib-grid`), fragment fade-up
+- **CSS namespace**: `.distrib-*` (`.distrib-grid`, `.distrib-card`, `.distrib-card-contrast`, `.distrib-card-accent`, `.distrib-card-content`, `.distrib-card-header`, `.distrib-card-title`, `.distrib-badge`, `.distrib-badge-gold`, `.distrib-badge-dark`, `.distrib-card-desc`, `.distrib-card-stats`)
+- **Cards** (4, each `.distrib-card.fragment.fade-up`):
+  - Direct-to-Consumer — gold accent, "Canal Principal" badge, stats: 85%+ retenție, Milioane de membri
+  - Boutiques — gold accent, "Retail Propriu" badge, stats: 802 magazine, 76 țări
+  - Digital & E-commerce — gold accent, "Online" badge, stats: 20.5% din vânzări, +13.5% creștere
+  - Fără Retail Tradițional — dark accent (`#2E2E2C`), "Exclusivitate" badge (dark), `.distrib-card-contrast`, stats: 0 supermarketuri, Marje 2x Nestlé
+- **Section override**: `.reveal .slides section:has(.distrib-grid) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 12 — Strategia Integrată (Ecosistemul de Marketing)
-- **Layout**: 2×2 card grid
-- **Label**: "Ecosistemul de Marketing" | **Heading**: "Strategia Integrată"
-- **Cards**: Marketing Online (site boutique, app, e-commerce), Responsabilitate Socială (AAA, Rainforest Alliance, capsule reciclabile), Distribuție (direct-to-consumer, fără supermarket-uri), Parteneriate (Marriott, companii aeriene premium, restaurante Michelin)
+### Slide 12 — Repoziționare & Evoluție — inserted 16 Mar 2026
+- **Label**: "Transformare Strategică" | **Heading**: "Repoziționare & Evoluție"
+- **Layout**: Vertical stack of 4 phase cards (`.repo-timeline`), fragment fade-up
+- **CSS namespace**: `.repo-*` (`.repo-timeline`, `.repo-phase`, `.repo-phase-marker`, `.repo-phase-number`, `.repo-phase-content`, `.repo-phase-header`, `.repo-phase-period`, `.repo-badge`, `.repo-badge-gold`, `.repo-badge-teal`, `.repo-badge-green`, `.repo-phase-title`, `.repo-phase-desc`)
+- **Phase cards** (4, each `.repo-phase.fragment.fade-up`):
+  - 01: 1986→1997 — "De la B2B la B2C" (gold badge "Pivot strategic")
+  - 02: 2000→2012 — "Capsulă de cafea → Simbol de lux" (gold badge "Construcția luxului")
+  - 03: 2012→2022 — "Expirarea brevetelor & Vertuo" (teal badge "Răspuns la competiție")
+  - 04: 2022→prezent — "Lux responsabil & B Corp" (green badge "Sustenabilitate")
+- **Section override**: `.reveal .slides section:has(.repo-timeline) { justify-content: flex-start; }`
+- **Reused classes**: `.label`, `.flip-divider`
 - **Background**: `#FAF9F8`
 
-### Slide 13 — Evoluția Brandului (Repozitionare & Revitalizare)
-- **Layout**: Two "Înainte → După" repositioning moments with animated counters
-- **Label**: "Repozitionare & Revitalizare" | **Heading**: "Evoluția Brandului"
-- **Moment 1 — 2010**: Sistemul Vertuo — espresso european → cafea lungă pt. America. Counter: "40%" creștere piață
-- **Moment 2 — 2019**: Pivotul Sustenabilității — lux tradițional → "lux responsabil", carbon neutral 2022. Counter: "91%" aluminiu reciclabil
-- **Background**: `#FAF9F8`
-
-### Slide 14 — Concluzii (Ce Învățăm)
-- **Layout**: Vertical list with fragment fade-up
-- **Label**: "Concluzii · Lecții de Branding" | **Heading**: "Ce Învățăm"
-- **Lessons**: fragment-revealed branding takeaways (Ecosistem, Lux accesibil, Consistență vizuală, Celebrity endorsement strategic, Sustenabilitate ca pilon)
-- **Speaker notes**: Academic refs — Kapferer (Brand Identity Prism), Keller (Brand Equity Model)
-- **Background**: `#FAF9F8`
-
-### Slide 15 — Încheiere & Q&A
-- **Layout**: Hero (centered)
-- **Content**: "What Else?" (large gold text), "Mulțumim pentru atenție", "Întrebări?"
+### Slide 13 — Încheiere — inserted 16 Mar 2026
+- **Layout**: Centered hero (`.closing-slide`), all elements visible immediately (no fragments)
+- **CSS namespace**: `.closing-*` (`.closing-slide`, `.closing-what-else`, `.closing-divider`, `.closing-thanks`, `.closing-team`, `.closing-name`, `.closing-dot`, `.closing-course`)
+- **Content**: "What Else?" (gold italic 3rem) → gold divider → "MULȚUMIM PENTRU ATENȚIE" (uppercase 2.2rem) → team names (Ema Cismaru · Darius Păpurică · Mihăică Răzvan) → "Branding · 2026"
+- **Section override**: `.reveal .slides section:has(.closing-slide) { justify-content: center; }`
 - **Background**: `#FAF9F8`
 
 ---
@@ -315,7 +348,7 @@ Reveal.initialize({
 
 - **Between slides**: `none` (instant, no fade/slide/flash)
 - **Internal elements**: fragment fade-up, fragment fade-in
-- **Animated counters**: Slides 10, 11, 13 — animate once from 0 on slide enter
+- **Animated counters**: None in current slides (counter JS exists but no `[data-counter]` elements in DOM)
 - **Vertical timeline scroll**: Slide 2 — `fragmentshown` event triggers `scrollIntoView({ behavior: 'smooth', block: 'nearest' })` on revealed node
 - **Flip cards (Slide 3)**: Fragment-driven — `fragmentshown` adds `.flipped`, `fragmenthidden` adds `.unflipped` on `.card-inner`. Keyframe animations `flip-scale-up-hor`/`flip-scale-down-hor` with `scale(1.2)` + `rotateX`. Re-entry sync via `onSlideChanged` applies `.flipped-instant`.
 - **Flip cards (Slide 4)**: Same fragment mechanism as Slide 3 but using `.card-inner-pos`. `fragmentshown`/`fragmenthidden`/`onSlideChanged` all extended for `.card-wrapper-pos`. Reuses same `flip-scale-up-hor`/`flip-scale-down-hor` keyframes (not duplicated).
@@ -349,6 +382,20 @@ Reveal.initialize({
 - `@keyframes flip-scale-up-hor` — forward flip: `rotateX(0→-180deg)` + `scale(1.2)` at 50%
 - `@keyframes flip-scale-down-hor` — reverse flip
 
+### All CSS Class Namespaces (Slides 5–13)
+
+| Slide | Prefix | Key Classes |
+|-------|--------|-------------|
+| 5 | `.nestle-*` | `.nestle-grid`, `.nestle-card`, `.nestle-card-header`, `.nestle-brand-name`, `.nestle-tag`, `.nestle-tag-gold`, `.nestle-card-desc` |
+| 6 | `.nline-*` | `.nline-card`, `.nline-accent`, `.nline-content`, `.nline-header`, `.nline-title`, `.nline-badge`, `.nline-badge-gold`, `.nline-badge-teal`, `.nline-desc`, `.nline-tags` |
+| 7 | `.user-*` | `.users-grid`, `.user-card`, `.user-card-accent`, `.user-card-content`, `.user-card-icon`, `.user-card-title`, `.user-card-desc`, `.user-card-tag` |
+| 8 | `.markets-*` | `.markets-layout`, `.markets-stats`, `.markets-stat-item`, `.markets-stat-number`, `.markets-stat-label`, `.markets-stat-hq`, `.markets-stat-city`, `.markets-regions`, `.market-card`, `.market-badge`, `.market-badge-gold`, `.market-badge-teal`, `.market-title`, `.market-desc` |
+| 9 | `.brand-*`, `.value-*` | `.brand-quotes-row`, `.brand-quote-card`, `.brand-quote-card-text`, `.brand-quote-card-source`, `.values-grid`, `.value-card`, `.value-card-green`, `.value-icon`, `.value-title`, `.value-desc` |
+| 10 | `.campaigns-*`, `.campaign-*` | `.campaigns-layout`, `.campaigns-stats`, `.campaigns-stat-item`, `.campaigns-stat-number`, `.campaigns-stat-label`, `.campaigns-stat-quote`, `.campaigns-stat-quote-text`, `.campaigns-timeline`, `.campaign-card`, `.campaign-year`, `.campaign-content`, `.campaign-title`, `.campaign-desc` |
+| 11 | `.distrib-*` | `.distrib-grid`, `.distrib-card`, `.distrib-card-contrast`, `.distrib-card-accent`, `.distrib-card-content`, `.distrib-card-header`, `.distrib-card-title`, `.distrib-badge`, `.distrib-badge-gold`, `.distrib-badge-dark`, `.distrib-card-desc`, `.distrib-card-stats` |
+| 12 | `.repo-*` | `.repo-timeline`, `.repo-phase`, `.repo-phase-marker`, `.repo-phase-number`, `.repo-phase-content`, `.repo-phase-header`, `.repo-phase-period`, `.repo-badge`, `.repo-badge-gold`, `.repo-badge-teal`, `.repo-badge-green`, `.repo-phase-title`, `.repo-phase-desc` |
+| 13 | `.closing-*` | `.closing-slide`, `.closing-what-else`, `.closing-divider`, `.closing-thanks`, `.closing-team`, `.closing-name`, `.closing-dot`, `.closing-course` |
+
 ---
 
 ## JS: Fragment & Slide Event Handlers (`js/custom.js`)
@@ -372,7 +419,7 @@ Reveal.initialize({
 ## Theme Logic
 
 - Slide 0: bg `assets/images/Fundal.png` (full-bleed), logo white centered 700px
-- Slides 1–15: bg `#FAF9F8`, text `#2E2E2C`
+- Slides 1–13: bg `#FAF9F8`, text `#2E2E2C`
 - **Persistent top-left logo**: removed (HTML overlay div, CSS `.nespresso-logo`, and JS `updateThemeElements()` logo logic all deleted)
 
 ---
@@ -425,7 +472,14 @@ Module scripts in `<head>` with `type="module"` execute after HTML parsing but t
 
 | Date | Change |
 |------|--------|
-| 16 Mar 2026 | Added Slide 5 "Portofoliul de Branduri" — split 45/55 layout, `.portfolio-*` CSS namespace, 7 fragment cards, vertical separator |
+| 16 Mar 2026 | Added Slide 13 "Încheiere" (`.closing-*`, centered hero, no fragments). 14 slides total (0–13). |
+| 16 Mar 2026 | Added Slide 12 "Repoziționare & Evoluție" (`.repo-*`, 4 numbered phase cards) |
+| 16 Mar 2026 | Added Slide 11 "Distribuție & Canale" (`.distrib-*`, 2×2 grid) |
+| 16 Mar 2026 | Added Slide 10 "Campanii și Ambasadori" (`.campaigns-*`, dark stats + 6 campaign cards) |
+| 16 Mar 2026 | Added Slide 9 "Valorile Brandului" (`.brand-quote-card-*`, `.value-*`, quote cards + 4 value cards) |
+| 16 Mar 2026 | Rebuilt slides 9–13 from scratch after deleting old slides 9–18 |
+| 16 Mar 2026 | Added Slide 7 "Categorii de Utilizatori" (`.user-*`, 3-col grid with SVG icons) + Slide 8 "Piețe Globale" (`.markets-*`, dark stats + region cards) |
+| 16 Mar 2026 | Split "Portofoliul de Branduri" into two slides: Slide 5 "Ecosistemul Nestlé" (`.nestle-*`, 2×2 grid) + Slide 6 "Portofoliul Nespresso" (`.nline-*`, 3-col grid). Deleted `.portfolio-*` CSS. |
 | 15 Mar 2026 | Added Slide 4 "Axe de Poziționare" — 2×2 flip card grid, `.pos-*` CSS namespace, tagline, usage situations row |
 | 15 Mar 2026 | Fixed `.flip-grid-pos` collapse: changed `margin: 0 auto` → `margin: 0` |
 | 16 Mar 2026 | **Root cause fix** — removed `style="position: relative;"` from sections 3 and 4 that caused slides 5–14 to render blank |
@@ -442,22 +496,29 @@ Module scripts in `<head>` with `type="module"` execute after HTML parsing but t
 
 ## Quality Checklist
 
-- [ ] All 16 slides (0–15) render correctly
+- [ ] All 14 slides (0–13) render correctly, no blank slides
 - [ ] All text in Romanian with correct diacritics
 - [ ] Campton font loads from local .otf files (no Google Fonts)
-- [ ] Slide 0: Fundal.png background, white Logo_nou.svg centered, no divider
-- [ ] Slides 1–15: #FAF9F8 background, dark text
-- [ ] Counter animations on slides 10, 11, 13
-- [ ] Slide 5 portfolio: split layout renders, 7 fragment cards, hover effects, separator visible
-- [ ] Slide 2 vertical timeline: 10 nodes with images, badges, fragment navigation, auto-scroll
-- [ ] Slide 3 flip cards: 4 fragment-driven cards, front face icon+label, back face with label+content, flip animation works
-- [ ] Slide 4 flip cards: 4 fragment-driven .pos cards render at full width, tagline and situations row visible
-- [ ] Slide 4: `.flip-grid-pos` has `margin: 0` (not `margin: 0 auto`), no debug CSS appended to theme
-- [ ] Card hover effects (gold border + translateY)
-- [ ] Fragment navigation on slides 2, 3, 4, 5, 14
+- [ ] Slide 0: Fundal.png background, white Logo_nou.svg centered 700px, no divider
+- [ ] Slides 1–13: `#FAF9F8` background, dark text
+- [ ] Slide 1: split 45/55, Eric Favre photo + 3D capsule model-viewer
+- [ ] Slide 2: vertical timeline, 10 nodes with images, badges, fragment auto-scroll
+- [ ] Slide 3: flip cards (Logo, Culori, Slogan, Font), flip animation works
+- [ ] Slide 4: flip cards `.pos-*` (Exclusivitate, Calitate, Inovație, Estetică), tagline + situations row
+- [ ] Slide 5: Nestlé 2×2 grid, all 4 cards gold border
+- [ ] Slide 6: Nespresso lines 3-column grid, accent bars + tag chips
+- [ ] Slide 7: user categories 3-column, SVG icons, demographic tags
+- [ ] Slide 8: dark stats column + 3 region cards with badges
+- [ ] Slide 9: 2 side-by-side quote cards + 4 value cards (Sustenabilitate = green accent)
+- [ ] Slide 10: dark stats box + 6 campaign timeline cards
+- [ ] Slide 11: 2×2 grid, 4 channel cards, 4th card dark contrast
+- [ ] Slide 12: 4 numbered phase cards with period + colored badges
+- [ ] Slide 13: centered closing — no fragments, all visible immediately
+- [ ] Card hover effects (gold border + translateY) on all card slides
+- [ ] Fragment navigation on slides 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 - [ ] Instant transitions (no fade, no flash)
-- [ ] Progress bar gold (#C3A572) at bottom
-- [ ] Slide 0: centered white logo (700px), no persistent top-left logo on other slides
+- [ ] Progress bar gold (`#C3A572`) at bottom
+- [ ] No persistent top-left logo on any slide
 - [ ] Speaker notes on every slide (S key)
 - [ ] No console errors
 - [ ] Max border-radius: 4px

@@ -24,7 +24,7 @@ Key principles:
 | Name                 | Hex       | RGB              | Usage                                     |
 |----------------------|-----------|------------------|-------------------------------------------|
 | **Warm Brown**       | `#362217` | (54, 34, 23)     | Viewport bg                               |
-| **Light Cream**      | `#FAF9F8` | (250, 249, 248)  | Default slide background (slides 1–14)    |
+| **Light Cream**      | `#FAF9F8` | (250, 249, 248)  | Default slide background (slides 1–13)    |
 | **Dark Charcoal**    | `#2E2E2C` | (46, 46, 44)     | Text on light slides                      |
 | **Warm Gray-Brown**  | `#6B5D4F` | (107, 93, 79)    | Subtext, captions on light slides         |
 | **Pure White**       | `#FFFFFF` | (255, 255, 255)  | Text on dark slides, card backgrounds     |
@@ -110,18 +110,18 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 
 ### Layout Types
 
-**1. Hero Layout** (Slides 0, 5, 14)
+**1. Hero/Centered Layout** (Slides 0, 13)
 - Centered text, large display typography
 - Thin gold horizontal divider
 - Dramatic negative space
 
-**2. Split Layout** (Slide 1: 45/55 photo+model-viewer, Slide 7: 50/50, Slide 9: 50/50)
+**2. Split Layout** (Slide 1: 45/55 photo+model-viewer)
 - Two-column grid
 
-**3. Card Grid** (Slides 8, 11)
-- 2×2 or 3-column grid
-- Cards with gold top border + subtle side/bottom borders
-- Hover: gold border glow + translateY(-4px)
+**3. Card Grid** (Slides 5, 6, 7, 9, 11)
+- 2×2, 3-column, or 4-column grids
+- Cards with gold borders or gold top accent bars
+- Hover: gold border glow + translateY(-2px to -4px)
 
 **3b. Flip Card Grid** (Slides 3 and 4)
 - 2×2 CSS grid (`.flip-grid` / `.flip-grid-pos`), interactive flip cards driven by Reveal.js fragments
@@ -133,20 +133,17 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 - `will-change: transform` on `.card-inner`/`.card-inner-pos`, `transform-style: preserve-3d` on `.card-wrapper`/`.card-wrapper-pos`
 - **Critical**: `.flip-grid-pos` must use `margin: 0` (NOT `margin: 0 auto`) — horizontal auto margins override `align-self: stretch` and collapse the grid to near-zero width
 
-**4. Timeline Layout** (Slides 2, 10)
-- Vertical scrollable timeline (slide 2): 10 nodes with images, badges, gold line, fragment fade-up, auto-scroll
-- Vertical interactive timeline (slide 10): hover-activated regions
+**4. Timeline Layout** (Slide 2)
+- Vertical scrollable timeline: 10 nodes with images, badges, gold line, fragment fade-up, auto-scroll
 - Nodes along the gold line, progressive reveal with fragments
 
-**5. Stats/Counter Layout** (Slides 9, 10, 12)
-- Large stat numbers in gold
-- Label below, animated counter on slide enter
+**5. Dark Stats + Cards Layout** (Slides 8, 10)
+- Dark charcoal (`#2E2E2C`) stats column (240px) with gold stat numbers
+- Adjacent card stack (region cards or campaign timeline cards)
 
-**6. List/Points Layout** (Slide 13)
-- Numbered vertical list, fragment fade-up
-
-**7. Repositioning Layout** (Slide 12)
-- Two "Înainte → După" blocks with `.repo-flow` and inline animated stat counters
+**6. Phase Timeline Layout** (Slide 12)
+- Numbered phase cards (01–04) with period ranges and colored badges
+- Vertical stack, fragment fade-up
 
 ---
 
@@ -260,9 +257,9 @@ Slide 4 additionally has below the grid:
 - `fragment fade-up` — primary entrance (content rises + opacity)
 - `fragment fade-in` — simple opacity
 
-### Counter Animation (Slides 9, 10, 12)
-- Counts from 0 to target value
-- Duration: ~2200ms, cubic ease-out
+### Counter Animation (currently unused)
+- JS `animateCounter()` exists in `custom.js` but no `[data-counter]` elements in current DOM
+- Counts from 0 to target value, duration ~2200ms, cubic ease-out
 - Triggers on `slidechanged` event, animates once per visit (re-animation guard via `data-animated`)
 
 ### Vertical Timeline (Slide 2)
@@ -281,7 +278,7 @@ Slide 4 additionally has below the grid:
   - Slide 3: `opacity: 1; visibility: visible` (no `!important` needed)
   - Slide 4: `opacity: 1 !important; visibility: visible !important`
 
-### Interactive Timeline (Slides 9, 10)
+### Interactive Timeline (legacy CSS — `.vt-item` classes still in theme)
 - Vertical sections with hover-activated highlight (`.vt-item.active`)
 
 ### Hover Effects
@@ -320,7 +317,7 @@ Slide 4 additionally has below the grid:
 
 - Position: fixed bottom-right
 - Font: Campton Light 300
-- Format: `01 / 15`
+- Format: `01 / 14`
 - Color: `#6B5D4F` on light slides, `rgba(255, 255, 255, 0.5)` on dark slides
 
 ---
