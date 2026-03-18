@@ -64,7 +64,7 @@
 .reveal {
   background: transparent !important;
   font-family: 'Campton', sans-serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
   color: var(--text-primary);
 }
@@ -179,7 +179,7 @@
 /* H3 — Card titles */
 .reveal h3 {
   font-family: 'Campton', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -200,7 +200,7 @@
 /* --- Labels --- */
 .label {
   font-family: 'Campton', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -211,7 +211,7 @@
 
 .label-muted {
   font-family: 'Campton', sans-serif;
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -289,7 +289,7 @@
 /* --- Caption / Source --- */
 .caption {
   font-family: 'Campton', sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-weight: 300;
   letter-spacing: 0.15em;
   color: var(--text-muted);
@@ -380,7 +380,7 @@
 
 .content-card .card-title {
   font-family: 'Campton', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -390,7 +390,7 @@
 
 .content-card .card-body {
   font-family: 'Campton', sans-serif;
-  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
@@ -437,7 +437,7 @@
 
 .persona-card .persona-title {
   font-family: 'Campton', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-primary);
@@ -447,7 +447,7 @@
 
 .persona-card .persona-desc {
   font-family: 'Campton', sans-serif;
-  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   color: var(--text-secondary);
   line-height: 1.75;
   margin: 0;
@@ -569,7 +569,7 @@
 .node-badge {
   display: inline-block;
   font-family: 'Campton', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -610,7 +610,7 @@
 
 .node-detail-v {
   font-family: 'Campton', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #6B5D4F;
   line-height: 1.5;
 }
@@ -765,7 +765,7 @@
   justify-content: center;
   gap: 2em;
   font-family: 'Campton', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -986,7 +986,7 @@
   right: 40px;
   z-index: 100;
   font-family: 'Campton', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 300;
   letter-spacing: 0.15em;
   color: #6B5D4F;
@@ -1237,7 +1237,7 @@
 }
 
 .card-back-label {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1283,7 +1283,7 @@
 
 .flip-desc {
   font-family: 'Campton', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: #6B5D4F;
   line-height: 1.6;
   text-align: center;
@@ -1328,7 +1328,7 @@
 
 .logo-box-old .logo-label {
   font-family: 'Campton', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #d9c7ba;
   letter-spacing: 0.1em;
   margin-top: 4px;
@@ -1347,14 +1347,14 @@
 
 .logo-box-new .logo-label {
   font-family: 'Campton', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #C3A572;
   letter-spacing: 0.1em;
   margin-top: 4px;
 }
 
 .logo-arrow {
-  font-size: 18px;
+  font-size: 22px;
   color: #C3A572;
 }
 
@@ -1381,7 +1381,7 @@
 
 .flip-swatch-label {
   font-family: 'Campton', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #6B5D4F;
   letter-spacing: 0.1em;
 }
@@ -1398,7 +1398,7 @@
 
 .flip-typo-meta {
   font-family: 'Campton', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   color: #6B5D4F;
   margin: 2px 0;
   text-align: center;
@@ -1493,7 +1493,7 @@
 }
 
 .card-back-label-pos {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1530,7 +1530,7 @@
 }
 
 .pos-situation-item span {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #6B5D4F;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1578,7 +1578,7 @@
 }
 
 .nestle-tag {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 5px 14px;
@@ -1595,7 +1595,7 @@
 }
 
 .nestle-card-desc {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #6B5D4F;
   line-height: 1.5;
   margin: 0;
@@ -1659,7 +1659,7 @@
 }
 
 .nline-badge {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 3px 10px;
@@ -1691,7 +1691,7 @@
 }
 
 .nline-tags span {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 4px 10px;
@@ -1772,7 +1772,7 @@
 }
 
 .user-card-tag {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #C3A572;
@@ -1827,7 +1827,7 @@
 
 .markets-stat-label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.7);
@@ -1870,7 +1870,7 @@
 }
 
 .market-badge {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 3px 10px;
@@ -1900,7 +1900,7 @@
 }
 
 .market-desc {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #6B5D4F;
   line-height: 1.4;
   margin: 0;
@@ -1954,7 +1954,7 @@
 }
 
 .brand-quote-card-source {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: #C3A572;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -2003,7 +2003,7 @@
 }
 
 .value-desc {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #6B5D4F;
   line-height: 1.4;
   margin: 0;
@@ -2054,7 +2054,7 @@
 
 .campaigns-stat-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.65);
@@ -2121,7 +2121,7 @@
 }
 
 .campaign-desc {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #6B5D4F;
   line-height: 1.4;
   margin: 0;
@@ -2191,7 +2191,7 @@
 }
 
 .distrib-badge {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 3px 10px;
@@ -2213,7 +2213,7 @@
 }
 
 .distrib-card-desc {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #6B5D4F;
   line-height: 1.45;
   margin: 0 0 12px;
@@ -2225,7 +2225,7 @@
 }
 
 .distrib-card-stats span {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 4px 10px;
@@ -2298,14 +2298,14 @@
 }
 
 .repo-phase-period {
-  font-size: 18px;
+  font-size: 22px;
   color: #6B5D4F;
   font-weight: 500;
   letter-spacing: 0.05em;
 }
 
 .repo-badge {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 3px 10px;
@@ -2338,7 +2338,7 @@
 }
 
 .repo-phase-desc {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: #6B5D4F;
   line-height: 1.45;
   margin: 0;
@@ -2415,7 +2415,7 @@
 }
 
 .closing-course span {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #6B5D4F;
