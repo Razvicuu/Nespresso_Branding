@@ -32,12 +32,12 @@ Key principles:
 | **Crema Gold**       | `#C3A572` | (195, 165, 114)  | Primary accent — dividers, stats, highlights |
 | **Light Gold**       | `#FDAF3E` | (253, 175, 62)   | Secondary accent — hover states           |
 
-### Sustainability Colors
+### Sustainability Colors (legacy — no longer used on card slides)
 
 | Name               | Hex       | Usage                                  |
 |--------------------|-----------|----------------------------------------|
-| **Sage Green**     | `#94A96D` | Sustainability card borders/accents    |
-| **Dark Teal**      | `#375F5E` | Environmental content accents          |
+| **Sage Green**     | `#94A96D` | Sustenabilitate value card SVG stroke only (Slide 9) |
+| **Dark Teal**      | `#375F5E` | **Removed from all card accents/badges** (17 Mar 2026) |
 
 ### Brand Colors
 
@@ -48,6 +48,7 @@ Key principles:
 
 ### Color Usage Rules
 - Gold (`#C3A572`) is NEVER used for large background areas — only for thin lines, small accents, icons, and highlights
+- **ALL card accent bars, badges, and SVG icon strokes use gold** (`#C3A572`) — no teal/green/dark exceptions (unified 17 Mar 2026)
 - Max border-radius: 4px (Art Deco = geometric precision)
 
 ---
@@ -88,7 +89,7 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 - **ALL CAPS** for: slide titles, navigation labels, section headers
 - **Letter-spacing: 0.15em–0.3em** on uppercase text (Art Deco spacing)
 - **Regular case** for: body text, descriptions, speaker notes
-- **Italics** reserved for: quotes, citations, emphasis (e.g. `.pos-tagline`)
+- **Italics** reserved for: quotes, citations, emphasis
 - Never use more than 2 font weights on a single slide
 
 ---
@@ -115,7 +116,7 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 - Thin gold horizontal divider
 - Dramatic negative space
 
-**2. Split Layout** (Slide 1: 45/55 photo+model-viewer)
+**2. Split Layout** (Slide 1: 45/55 photo+Sketchfab iframe)
 - Two-column grid
 
 **3. Card Grid** (Slides 5, 6, 7, 9, 11)
@@ -142,7 +143,7 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 - Adjacent card stack (region cards or campaign timeline cards)
 
 **6. Phase Timeline Layout** (Slide 12)
-- Numbered phase cards (01–04) with period ranges and colored badges
+- Numbered phase cards (01–04) with period ranges (18px) and gold badges
 - Vertical stack, fragment fade-up
 
 ---
@@ -217,8 +218,8 @@ Each weight has a matching Italic variant (e.g., CamptonBoldItalic.otf).
 .node-year-v { font-size: 2.5rem; font-weight: 700; color: var(--gold-primary); }
 .node-badge { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
   text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
-.node-img { width: 300px; height: 180px; object-fit: contain; flex-shrink: 0; }
-.node-img-lg { width: 400px; height: 260px; }
+.node-img { width: 400px; height: 180px; object-fit: contain; flex-shrink: 0; }
+.node-img-lg { height: 260px; }  /* width inherited from .node-img */
 ```
 
 Badge color variants: `.badge-launch` (gold), `.badge-strategy` (teal), `.badge-sustain` (green), `.badge-identity` (charcoal) — all with 12% opacity backgrounds.
@@ -241,8 +242,7 @@ Both slides share the same structural pattern and keyframe animations:
 
 Slide 4 additionally has below the grid:
 ```
-.pos-tagline         ← italic tagline (specificity: .reveal .slides section .pos-tagline)
-.pos-situations      ← flex row of usage situations
+.pos-situations      ← flex row of usage situations (tagline removed 17 Mar 2026)
   └── .pos-situation-item  ← SVG icon + span label
 ```
 
@@ -257,10 +257,6 @@ Slide 4 additionally has below the grid:
 - `fragment fade-up` — primary entrance (content rises + opacity)
 - `fragment fade-in` — simple opacity
 
-### Counter Animation (currently unused)
-- JS `animateCounter()` exists in `custom.js` but no `[data-counter]` elements in current DOM
-- Counts from 0 to target value, duration ~2200ms, cubic ease-out
-- Triggers on `slidechanged` event, animates once per visit (re-animation guard via `data-animated`)
 
 ### Vertical Timeline (Slide 2)
 - Static vertical gold line (no draw animation)
@@ -277,9 +273,6 @@ Slide 4 additionally has below the grid:
 - Fragment visibility override required (Reveal.js hides `.fragment` by default):
   - Slide 3: `opacity: 1; visibility: visible` (no `!important` needed)
   - Slide 4: `opacity: 1 !important; visibility: visible !important`
-
-### Interactive Timeline (legacy CSS — `.vt-item` classes still in theme)
-- Vertical sections with hover-activated highlight (`.vt-item.active`)
 
 ### Hover Effects
 - Cards: `translateY(-4px)` + gold border + gold box-shadow
@@ -302,14 +295,13 @@ Slide 4 additionally has below the grid:
 
 ---
 
-## 3D Model Viewer (Slide 1)
+## 3D Capsule Embed (Slide 1) — Sketchfab iframe (replaced model-viewer 17 Mar 2026)
 
-- **CDN**: `https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js` (`type="module"`)
-- **Placement**: `<script type="module">` tag at end of `<body>`, **after** `Reveal.initialize()` — NOT in `<head>` (module scripts in head may race with Reveal.js initialization)
-- **Model**: `assets/Capsula_Nespresso.glb`
-- **Size**: 360×340px, centered below timeline
-- **Attributes**: `auto-rotate`, `auto-rotate-delay="0"`, `rotation-per-second="15deg"`, `camera-controls`, `disable-zoom`, `interaction-prompt="none"`, `camera-orbit="45deg 65deg 105%"`
-- **Lighting**: `environment-image="legacy"`, `exposure="2.2"`, `tone-mapping="commerce"`, `shadow-intensity="0"`
+- **Source**: Sketchfab embed iframe (model by PoliGone — "Nespresso Vertuo Pod")
+- **URL params**: `autostart=1`, `autospin=0.4`, `transparent=1`, `preload=1`, all `ui_*=0` flags
+- **Container**: `.slide-3-capsule` — `position: relative; display: flex; flex: 1` for optical centering
+- **Interaction block**: `.sketchfab-overlay` div (`position: absolute; z-index: 10`) sits on top of iframe to prevent accidental mouse interaction during presentation
+- **Previous**: `<model-viewer>` with local `assets/Capsula_Nespresso.glb` — removed. GLB file still on disk but unused. model-viewer CDN script tag removed from `<body>`.
 
 ---
 
